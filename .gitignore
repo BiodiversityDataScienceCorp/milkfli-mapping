@@ -14,6 +14,9 @@
 # Output files from R CMD build
 /*.tar.gz
 
+#don't display my token
+github.R
+
 # Output files from R CMD check
 /*.Rcheck/
 
