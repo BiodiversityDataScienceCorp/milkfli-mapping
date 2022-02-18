@@ -5,10 +5,10 @@ output: pdf_document
 
 ## Mapping Species Occurrences
 
-Your Name(s) 
-Group Name 
+Maxine Cruz, Deanna Sunnergren, and Caelan Wilkie-Rogers
+Milkfli
 Mapping Species Occurrences 
-Feburary 15th 
+February 15th 
 
 There are two big goals of today's R Notebook:
 
@@ -32,7 +32,6 @@ library("rgdal")
 library("dismo")
 library("sf")
 
-
 ```
 
 
@@ -50,15 +49,15 @@ Workflow:
 
 Check out commit-push-pull.jpg for a visual representation.
 
-How to Commit (i.e. selecting files to synch to GitHub): 
+How to Commit (i.e. selecting files to sync to GitHub): 
 * Save any files you've been editing toward your "commit" goal.
 * In the upper-right window, open the Git tab. 
-* Click the checkboxes next to any files to be included in your commit.
+* Click the check boxes next to any files to be included in your commit.
 * Click "Commit"
 * A window will open. Write a description of your commit in the "Commit Message" box, and click "Commit".
 * Close the resulting window. 
 
-How to Push (i.e. synch the files to GitHub): 
+How to Push (i.e. sync the files to GitHub): 
 * Immediately after you've committed, you'll want to push.  
 * In the window that had opened from your commit, click Push (next to green up arrow)
 * A window will pop up with a message, which you can close.
@@ -82,8 +81,23 @@ Group member 1:
 * Tell your groupmates to pull in Slack
 
 ```{r}
+# Query (retrieve data on) Asclepias speciosa
 
+# Initially (without the limit), we will only get 500/9353 observations:
 
+# Searched: gbif
+# Occurrences - Found: 9,353, Returned: 500
+# Search type: Scientific
+#   gbif: Asclepias speciosa (500)
+
+# But now that we know what the maximum number of observations is (9353),
+# we can add the limit so that it includes all observations.
+
+showy_milkweed <- occ(query = "Asclepias speciosa",
+                      from = "gbif",
+                      limit = 9400)
+
+showy_milkweed
 
 ```
 
