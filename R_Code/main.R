@@ -1,4 +1,4 @@
-# Hmm add title here
+######## Initial doings ########
 
 # Load packages
 library("spocc")
@@ -8,3 +8,10 @@ library("maptools")
 library("rgdal")
 library("dismo")
 library("sf")
+
+# Load our functions
+source("src/functions.R")
+
+
+
+######## Species Occurrence map ########
