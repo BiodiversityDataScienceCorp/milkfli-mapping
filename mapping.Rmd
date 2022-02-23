@@ -99,6 +99,13 @@ showy_milkweed <- occ(query = "Asclepias speciosa",
 
 showy_milkweed
 
+# This gives us:
+
+# Searched: gbif
+# Occurrences - Found: 9,353, Returned: 9,353
+# Search type: Scientific
+#   gbif: Asclepias speciosa (9353)
+
 ```
 
 
