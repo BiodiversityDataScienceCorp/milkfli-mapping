@@ -266,13 +266,13 @@ plot(wrld_simpl,
      ylim = c(min.lat, max.lat), # Sets upper/lower y
      axes = TRUE, 
      col = "grey95",
-     main = "Asclepias speciosas occurrences in the Americas")
+     main = "*Asclepias speciosas* occurrences in the Americas")
 
 # Add the points for individual observations
 
 points(x = csv_showy_milkweed_noNA_coord$longitude, 
        y = csv_showy_milkweed_noNA_coord$latitude, 
-       col = "blue", 
+       col = "olivedrab3", 
        pch = 20, 
        cex = 0.75)
 
