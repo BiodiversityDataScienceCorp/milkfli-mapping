@@ -22,7 +22,8 @@
 
 ### Data Source(s) for Occurence and Distribution Modeling:
 
-### Species Occurrence Map:
+### Species Occurrence Map:Outputs/showy_milkweed_occurrence_map.jpg
+
 
 ### Link to GitHub Repository:
 
