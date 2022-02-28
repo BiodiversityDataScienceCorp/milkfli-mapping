@@ -1,6 +1,7 @@
 # Species Status Assessment (SSA) 
 
-### Species Name: (English and Latin)
+### Species Name: Showy Milkweed - *Asclepias Speciosa*
+
 
 ### Species Taxonomy: (Latin synonyms)
 
