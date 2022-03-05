@@ -11,7 +11,9 @@ library("sf")
 library("tidyverse")
 
 # Load our functions
-source("src/functions.R")
+source("SRC/functions.R")
+
+
 
 
 
@@ -33,7 +35,7 @@ showy_milkweed <- occ(query = "Asclepias speciosa",
                       from = "gbif",
                       limit = 9400)
 
-showy_milkweed
+# If we run showy_milkweed
 
 # This gives us:
 
@@ -286,3 +288,59 @@ dev.off()
 
 
 
+
+
+############### SPECIES DISTRIBUTION MODEL ###############
+
+# Thank you Jeff Oliver for your code 
+# (https://github.com/jcoliver/biodiversity-sdm-lesson)
+
+# 1) Run the setup code below
+# This installs libraries, and downloads climate data from bioclim 
+# (https://www.worldclim.org/data/bioclim.html)
+
+source(file = "setup-for-sdm-single.R")
+
+
+# 2) In the "SRC" directory, copy the contents of "run-sdm-single.R"
+# into a new file (still in 'SRC') called <species>-sdm-single.R 
+# (Rename <species> to your milkweed)
+
+# In our case, this will be A-speciosa-sdm-single.R
+
+
+# 3) In this new file, edit lines 14 & 15, 
+# changing MY_SPECIES to your milkwood species
+
+# For us, this turns into:
+# infile <- "data/A_speciosa.csv"
+# outprefix <- "A_speciosa"
+
+
+# 4) Below, write your spocc/gbif query, 
+# and then use the "$" notation to create a variable targeting the data set. 
+
+# Our species is Asclepias speciosa (Showy milkweed)
+# Link to GBIF: https://www.gbif.org/species/3170260
+# We should limit to 2020 just to keep the volume down
+
+A_speciosa <- occ(query='Asclepias speciosa', 
+                  from="gbif", gbifopts = list(year="2020"))
+
+# Filter so we only have the dataset
+
+A_speciosa <- A_speciosa$gbif$data$Asclepias_speciosa
+
+
+# 5) Save to .csv
+
+# first, ensure all data is character data
+#df <- apply(df,2,as.character)
+
+
+# use write.csv to write the data frame to 'data' directory
+# make sure the file name matches what you indicated in step 3 on line 14
+
+
+
+# 6) Use the source() command to run the file you created in step 2 ############
