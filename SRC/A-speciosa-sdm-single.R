@@ -11,9 +11,9 @@ rm(list = ls())
 # Load dependancies
 
 # Things to set:
-infile <- "data/A_speciosa.csv"
+infile <- "Data/A_speciosa.csv"
 outprefix <- "A_speciosa"
-outpath <- "output/"
+outpath <- "Outputs/"
 
 # Make sure the input file exists
 if (!file.exists(infile)) {
@@ -89,10 +89,17 @@ data(wrld_simpl)
 
 # Draw the base map
 plot(wrld_simpl, xlim = c(xmin, xmax), ylim = c(ymin, ymax), axes = TRUE, col = "gray95", 
-     main = paste0(gsub(pattern = "_", replacement = " ", x = outprefix), " - current"))
+     main = paste0(gsub(pattern = "_", replacement = " ", x = outprefix), " - Current"))
 
 # Add the model rasters
 plot(sdm.raster, legend = FALSE, add = TRUE)
+
+# Add occurrence data
+points(x = prepared.data$lon, 
+       y = prepared.data$lat, 
+       col = "red", 
+       pch = 20, 
+       cex = 0.75)
 
 # Redraw the borders of the base map
 plot(wrld_simpl, xlim = c(xmin, xmax), ylim = c(ymin, ymax), add = TRUE, border = "gray10", col = NA)

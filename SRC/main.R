@@ -299,7 +299,7 @@ dev.off()
 # This installs libraries, and downloads climate data from bioclim 
 # (https://www.worldclim.org/data/bioclim.html)
 
-source(file = "setup-for-sdm-single.R")
+source(file = "SRC/setup-for-sdm-single.R")
 
 
 # 2) In the "SRC" directory, copy the contents of "run-sdm-single.R"
@@ -329,18 +329,21 @@ A_speciosa <- occ(query='Asclepias speciosa',
 
 # Filter so we only have the dataset
 
-A_speciosa <- A_speciosa$gbif$data$Asclepias_speciosa
+A_speciosa_data <- A_speciosa$gbif$data$Asclepias_speciosa
 
 
 # 5) Save to .csv
 
-# first, ensure all data is character data
-#df <- apply(df,2,as.character)
+# First, ensure all data is character data
+# df <- apply(df,2,as.character)
 
+A_speciosa_data <- apply(A_speciosa_data,2,as.character)
 
-# use write.csv to write the data frame to 'data' directory
-# make sure the file name matches what you indicated in step 3 on line 14
+# Use write.csv() to write the data frame to 'data' directory
+# Make sure the file name matches what you indicated in step 3 on line 14
 
+write.csv(A_speciosa_data, "Data/A_speciosa.csv")
 
+# 6) Use the source() command to run the file you created in step 2
 
-# 6) Use the source() command to run the file you created in step 2 ############
+source("SRC/A-speciosa-sdm-single.R")
