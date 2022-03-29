@@ -10,8 +10,8 @@
 ### Order:  *Gentianales* (Dogbane / Gentian)
 ### Family: *Asclepiadaceae* (Milkweeds)
 ### Species: *Asclepias speciosa* (Showy Milkweed) 
-![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/showy_milkweed_picture.jpeg?raw=true)
-https://www.inaturalist.org/observations/73719305
+![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/monarch_on_showy.jpeg?raw=true)
+https://www.fws.gov/media/monarch-butterfly-showy-milkweed
 
 
 ### Species Description 
