@@ -290,7 +290,7 @@ dev.off()
 
 
 
-############### SPECIES DISTRIBUTION MODEL ###############
+############### SPECIES DISTRIBUTION MODELS ###############
 
 # Thank you Jeff Oliver for your code 
 # (https://github.com/jcoliver/biodiversity-sdm-lesson)
@@ -299,7 +299,7 @@ dev.off()
 # This installs libraries, and downloads climate data from bioclim 
 # (https://www.worldclim.org/data/bioclim.html)
 
-source(file = "SRC/setup-for-sdm-single.R")
+source(file = "SRC/setup-for-current-and-future-sdm.R")
 
 
 # 2) In the "SRC" directory, copy the contents of "run-sdm-single.R"
@@ -324,8 +324,8 @@ source(file = "SRC/setup-for-sdm-single.R")
 # Link to GBIF: https://www.gbif.org/species/3170260
 # We should limit to 2020 just to keep the volume down
 
-A_speciosa <- occ(query='Asclepias speciosa', 
-                  from="gbif", gbifopts = list(year="2020"))
+A_speciosa <- occ(query = 'Asclepias speciosa', 
+                  from = "gbif", gbifopts = list(year="2020"))
 
 # Filter so we only have the dataset
 
@@ -337,7 +337,7 @@ A_speciosa_data <- A_speciosa$gbif$data$Asclepias_speciosa
 # First, ensure all data is character data
 # df <- apply(df,2,as.character)
 
-A_speciosa_data <- apply(A_speciosa_data,2,as.character)
+A_speciosa_data <- apply(A_speciosa_data, 2, as.character)
 
 # Use write.csv() to write the data frame to 'data' directory
 # Make sure the file name matches what you indicated in step 3 on line 14
@@ -346,4 +346,10 @@ write.csv(A_speciosa_data, "Data/A_speciosa.csv")
 
 # 6) Use the source() command to run the file you created in step 2
 
-source("SRC/A-speciosa-sdm-single.R")
+# This generates a current SDM model
+
+source("SRC/A-speciosa-sdm-current-single.R")
+
+# This generates a future SDM model
+
+source("SRC/A-speciosa-sdm-future-single.R")
