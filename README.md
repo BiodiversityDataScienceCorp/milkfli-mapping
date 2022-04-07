@@ -1,3 +1,5 @@
+![](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Other_files/butterfly-gcb28d2610_1280.jpg)
+
 ## Overview
 Description of the purpose of the repository.
 
