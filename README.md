@@ -12,12 +12,15 @@ Many thanks to Jeff Oliver for the code used in species distribution modelling! 
 ## Dependencies
 The following additional R packages are required (these will be installed by running the the setup script, `src/setup.R`):
 
-(list packages below...you may want to test this out to ensure dependent packages are installed in src/setup.R )
-
-+ package1
-+ package2
-+ package3
-+ etc
++ dismo
++ maps
++ maptools
++ raster
++ rgdal
++ sf
++ sp
++ spocc
++ tidyverse
 
 ## Structure
 + SSA.md: Species Status Assessment for Showy Milkweed (*Asclepias speciosa*)
