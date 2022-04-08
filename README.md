@@ -1,4 +1,4 @@
-![](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Other_files/butterfly-gcb28d2610_1280.jpg)
+![](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Photos/butterfly-gcb28d2610_1280.jpg)
 
 ## Overview
 The Showy Milkweed (*Asclepias speciosa*) is one of various host plants to monarch butterflies (*Danaus plexippus*: Nymphalidae).
@@ -31,7 +31,9 @@ The following additional R packages are required (these will be installed by run
 + Outputs (contents are not under version control): 
 + SRC: directory containing R scripts for gathering occurrence data, running forecast models, and creating map outputs.
   + main.R: describe what main.R does!
-  + list each additional file in src/, and give a brief description of its purpose 
+  + list each additional file in src/, and give a brief description of its purpose
++ Photos
+  + Contains images used in repository
 
 ## How do I run the code?
 The code used in this project is in R. Therefore, there are two options:
