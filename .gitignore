@@ -19,6 +19,7 @@
 
 # RStudio files
 .Rproj.user/
+.Rproj.user/shared/notebooks/paths
 
 # produced vignettes
 vignettes/*.html
@@ -40,7 +41,3 @@ vignettes/*.pdf
 
 # Don't ever expose me to the public
 github.R
-
-Data/wc2-5/
-.hdr
-.bil
