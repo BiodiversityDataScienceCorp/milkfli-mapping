@@ -24,18 +24,18 @@ Monarch butterflies, Queen butterflies, Dogbane Tiger Moths, and Red belted clea
 
 ### Threats to Species' Survival
 Pathogens:
-Cercospora clavata
-Cercospora elaeochroma
-Cercospora venturiodes
-Colletotrichum fusarioides
-Phoma asclepoadea
-Phoma rostrata
-Puccinia bartholomaei
-Puccinia seymouriana
-Uromyces asclepiadis
++ Cercospora clavata
++ Cercospora elaeochroma
++ Cercospora venturiodes
++ Colletotrichum fusarioides
++ Phoma asclepoadea
++ Phoma rostrata
++ Puccinia bartholomaei
++ Puccinia seymouriana
++ Uromyces asclepiadis
 
 Other threats:
-Asclepias speciosa is toxic to a variety of livestock making it a target of removal by farmers and ranchers.
++ Asclepias speciosa is toxic to a variety of livestock making it a target of removal by farmers and ranchers.
 
 
 ### Data Source(s) for Occurrence and Distribution Modeling

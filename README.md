@@ -1,45 +1,3 @@
-
-# Species Status Assessment (SSA) 
-
-### Species Name: Showy Milkweed - *Asclepias Speciosa*
-
-
-### Species Taxonomy:
-### Kingdom: *Plantae* (Plants) 
-### Division: *Anthophyta* (Flowering plants)
-### Class: *Dicotyledoneae* (Dicots )
-### Order:  *Gentianales* (Dogbane / Gentian)
-### Family: *Asclepiadaceae* (Milkweeds)
-### Species: *Asclepias speciosa* (Showy Milkweed) 
-![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/monarch_on_showy.jpg?raw=true)
-https://www.fws.gov/media/monarch-butterfly-showy-milkweed
-
-
-### Species Description 
-“A stout, sparingly branched, pubescent perennial, 1 1/2-3 ft. tall, with large, oval, blue-green leaves and showy, spherical clusters of rose-colored flowers. Flowers occur at the top of the stem and on stalks from leaf axils. A grayish, velvety plant with erect leafy stems and with umbels of star-like pinkish flowers in upper axils and at top. Sap milky.” (wildflower.org)
-
-### Habitat Description
-“Found in habitats ranging from sunny and dry to moist in savannas, prairies, road-sides, old fields, and meadows.” (wildflower.org) 
-
-### Larval Host Information
-Monarch butterflies, Queen butterflies, Dogbane Tiger Moths, and Red belted clearwing moth larvae feed on Showy Milkweed. 
-
-### Data Source(s) for Occurence and Distribution Modeling
-GBIF
-
-### Species Occurrence Map
-![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/showy_milkweed_occurrence_map.jpg?raw=true)
-
-### Link to GitHub Repository
-
-https://github.com/BiodiversityDataScienceCorp/milkfli-mapping
-
-### References
-
-
-=======
->>>>>>> 1fcc0f4713283e4ce12da047f9995b04936c9093
-=======
 ![](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Photos/butterfly-gcb28d2610_1280.jpg)
 
 ## Overview
@@ -85,4 +43,3 @@ Might have issues with crashing -- will investigate more later
 
 ### RStudio Desktop
 Provide step-by-step instructions on how one would clone this repository, run the code, and replicate the output. You may want to provide instructions for running your repository on a local instance of RStudio, and for a user on rstudio.cloud (there may be subtle differences in getting started).
->>>>>>> 4addd82548137703c002ce15991623c7f8a0c935
