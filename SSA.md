@@ -10,9 +10,8 @@
 ### Order:  *Gentianales* (Dogbane / Gentian)
 ### Family: *Asclepiadaceae* (Milkweeds)
 ### Species: *Asclepias speciosa* (Showy Milkweed) 
-![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/showy_milkweed_picture.jpeg?raw=true)
-https://www.inaturalist.org/observations/73719305
-
+![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/monarch_on_showy.jpg?raw=true)
+https://www.fws.gov/media/monarch-butterfly-showy-milkweed
 
 ### Species Description 
 “A stout, sparingly branched, pubescent perennial, 1 1/2-3 ft. tall, with large, oval, blue-green leaves and showy, spherical clusters of rose-colored flowers. Flowers occur at the top of the stem and on stalks from leaf axils. A grayish, velvety plant with erect leafy stems and with umbels of star-like pinkish flowers in upper axils and at top. Sap milky.” (wildflower.org) Milkweed can spread asexually through rhizomes or sexually with seeds. It does not spread aggressively. It is also drought tolerant once established. 

@@ -13,6 +13,11 @@
 /*.Rcheck/
 # RStudio files
 .Rproj.user/
+<<<<<<< HEAD
+=======
+.Rproj.user/shared/notebooks/paths
+
+>>>>>>> 4addd82548137703c002ce15991623c7f8a0c935
 # produced vignettes
 vignettes/*.html
 vignettes/*.pdf

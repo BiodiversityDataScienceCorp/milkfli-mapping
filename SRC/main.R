@@ -1,25 +1,55 @@
-############### INITIAL DOINGS ###############
+######################### Data cleaning and map generation for Showy Milkweed (*Asclepias speciosa*) data #########################
+
+# Maxine Cruz, Deanna Sunnergren, and Caelan Wilkie-Rogers
+# Spring 2022
+
+# This main.R code will:
+# (1) gather data from GBIF,
+# (2) generate a species occurrence map,
+# (3) generate a current species distribution map, and
+# (4) generate a future (forecast) species distribution map
+
+
+
+
+
+######################### INITIAL DOINGS: INSTALL PACKAGES AND LOAD LIBRARIES #########################
+
+# List all the packages required to run this code
+# Storing them in one place (required <-) makes it easier to install them in one go
+
+required <- c("raster", "sp", "dismo", "maptools", "spocc", "rgdal", "sf", "tidyverse", "maps")
+
+# Install packages
+
+install.packages(required)
 
 # Load packages
-library("spocc")
-library("sp")
+
 library("raster")
-library("maptools")
-library("rgdal")
+library("sp")
 library("dismo")
+library("maptools")
+library("spocc")
+library("rgdal")
 library("sf")
 library("tidyverse")
+library("maps")
 
-# Load our functions
-source("SRC/functions.R")
+# Load the functions used for species distribution modelling (SDM)
+
+source("SRC/sdm-functions.R")
 
 
 
 
 
-############### SPECIES OCCURRENCE MAP ###############
+######################### QUERYING DATA FROM GBIF #########################
 
-######## Query (retrieve data on) Asclepias speciosa ########
+# Query (retrieve data on) A. speciosa
+
+# Our species is Asclepias speciosa (Showy milkweed)
+# Link to GBIF: https://www.gbif.org/species/3170260
 
 # Initially (without the limit), we will only get 500/9353 observations:
 
@@ -46,12 +76,16 @@ showy_milkweed <- occ(query = "Asclepias speciosa",
 
 
 
+
+
+######################### SPECIES OCCURRENCE MAP #########################
+
 ######## Refine query results ########
 
-# We only want the milkweed data
+# We only want the milkweed data (and not all the other things that came with the query)
+# Using the "$" notation helps to create a variable targeting the data set
 
 showy_milkweed <- showy_milkweed$gbif$data$Asclepias_speciosa
-
 
 
 ######## Cleaning the data: occurenceStatus ########
@@ -93,7 +127,6 @@ unique(showy_milkweed$occurrenceStatus)
 # An alternative method could be using filter()
 
 
-
 ######## Cleaning the data: individualCount ########
 
 # individualCount is the number of individuals observed at the time of occurrence
@@ -125,7 +158,6 @@ showy_milkweed_noNA <- showy_milkweed[!is.na(showy_milkweed$individualCount), ]
 # showy_milkweed <- anti_join(showy_milkweed, zero)
 
 
-
 ######## For the purposes of mapping ########
 
 # If NA values occur in the latitude and longitude,
@@ -136,23 +168,22 @@ showy_milkweed_noNA_coord <- showy_milkweed[!is.na(showy_milkweed$latitude), ]
 showy_milkweed_noNA_coord <- showy_milkweed[!is.na(showy_milkweed$longitude), ]
 
 
-
 ######## Cleaning the data: errors in lat/long ########
 
 # We can first plot a map to visually assess whether points need to be removed
 
-world_map <- borders("world", colour="gray50", fill="gray50")
+# world_map <- borders("world", colour="gray50", fill="gray50")
 
-sample_map <- ggplot() + 
-  coord_fixed() + 
-  world_map +
-  geom_point(data = showy_milkweed,
-             aes(x = longitude, y = latitude),
-             colour = "darkred", 
-             size = 1.0) +
-  theme_bw()
+# sample_map <- ggplot() + 
+#   coord_fixed() + 
+#   world_map +
+#   geom_point(data = showy_milkweed,
+#              aes(x = longitude, y = latitude),
+#              colour = "darkred", 
+#              size = 1.0) +
+#   theme_bw()
 
-# This results in a map that shows that A. speciosa is primarily in N. America
+# This results in a map showing that A. speciosa is primarily in N. America
 # There are a few points in Europe and Africa, and it is possible that
 # these occurrences are native or established
 # But in our case, we are interested in the occurrences in the Americas
@@ -170,14 +201,16 @@ showy_milkweed <- showy_milkweed %>%
 
 # Replot data on world map to ensure filtering was correct
 
-sample_map_2 <- ggplot() + 
-  coord_fixed() + 
-  world_map +
-  geom_point(data = showy_milkweed,
-             aes(x = longitude, y = latitude),
-             colour = "darkred", 
-             size = 1.0) +
-  theme_bw()
+# sample_map_2 <- ggplot() + 
+#   coord_fixed() + 
+#   world_map +
+#   geom_point(data = showy_milkweed,
+#              aes(x = longitude, y = latitude),
+#              colour = "darkred", 
+#              size = 1.0) +
+#   theme_bw()
+
+# This map would show that our filtering efforts were effective
 
 # Apply filter to other two data sets
 
@@ -188,7 +221,6 @@ showy_milkweed_noNA <- showy_milkweed_noNA %>%
 showy_milkweed_noNA_coord <- showy_milkweed_noNA_coord %>% 
   filter(latitude <= 100 & latitude >= 0) %>%
   filter(longitude <= -50 & longitude >= -150)
-
 
 
 ######## Reduce columns in data ########
@@ -219,16 +251,15 @@ write_csv(showy_milkweed_noNA, "showy_milkweed_noNA.csv")
 write_csv(showy_milkweed_noNA_coord, "showy_milkweed_noNA_coord.csv")
 
 
-
 ######## Load .csv data file for mapping ########
 
 csv_showy_milkweed_noNA_coord <- read_csv("showy_milkweed_noNA_coord.csv")
 
 
-
 ######## Determine max and min latitudes and longitudes to center map ########
 
-# We do not want an off-centered map
+# Now, we can make a nice map
+# We do not want an off-centered map -- because really, who wants that?
 # So it would be good to find the boundaries of where the data are
 # In doing so, we can plot a map that is focused in on that region
 
@@ -247,7 +278,6 @@ min.lat <- floor(min(csv_showy_milkweed_noNA_coord$latitude))
 
 max.lon <- ceiling(max(csv_showy_milkweed_noNA_coord$longitude))
 min.lon <- floor(min(csv_showy_milkweed_noNA_coord$longitude))
-
 
 
 ######## Mapping points for A. speciosa ########
@@ -290,16 +320,13 @@ dev.off()
 
 
 
-############### SPECIES DISTRIBUTION MODEL ###############
-
-# Thank you Jeff Oliver for your code 
-# (https://github.com/jcoliver/biodiversity-sdm-lesson)
+######################### SPECIES DISTRIBUTION MODELS #########################
 
 # 1) Run the setup code below
 # This installs libraries, and downloads climate data from bioclim 
 # (https://www.worldclim.org/data/bioclim.html)
 
-source(file = "SRC/setup-for-sdm-single.R")
+source(file = "SRC/setup-for-current-and-future-sdm.R")
 
 
 # 2) In the "SRC" directory, copy the contents of "run-sdm-single.R"
@@ -318,14 +345,11 @@ source(file = "SRC/setup-for-sdm-single.R")
 
 
 # 4) Below, write your spocc/gbif query, 
-# and then use the "$" notation to create a variable targeting the data set. 
 
-# Our species is Asclepias speciosa (Showy milkweed)
-# Link to GBIF: https://www.gbif.org/species/3170260
 # We should limit to 2020 just to keep the volume down
 
-A_speciosa <- occ(query='Asclepias speciosa', 
-                  from="gbif", gbifopts = list(year="2020"))
+A_speciosa <- occ(query = 'Asclepias speciosa', 
+                  from = "gbif", gbifopts = list(year="2020"))
 
 # Filter so we only have the dataset
 
@@ -337,7 +361,7 @@ A_speciosa_data <- A_speciosa$gbif$data$Asclepias_speciosa
 # First, ensure all data is character data
 # df <- apply(df,2,as.character)
 
-A_speciosa_data <- apply(A_speciosa_data,2,as.character)
+A_speciosa_data <- apply(A_speciosa_data, 2, as.character)
 
 # Use write.csv() to write the data frame to 'data' directory
 # Make sure the file name matches what you indicated in step 3 on line 14
@@ -346,4 +370,10 @@ write.csv(A_speciosa_data, "Data/A_speciosa.csv")
 
 # 6) Use the source() command to run the file you created in step 2
 
-source("SRC/A-speciosa-sdm-single.R")
+# This generates a CURRENT SDM model
+
+source("SRC/A-speciosa-sdm-current-single.R")
+
+# This generates a FUTURE SDM model
+
+source("SRC/A-speciosa-sdm-future-single.R")
