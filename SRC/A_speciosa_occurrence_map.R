@@ -1,13 +1,11 @@
-######################### Data cleaning and map generation for Showy Milkweed (*Asclepias speciosa*) data #########################
+# Make an occurrence map of the Showy Milkweed (*Asclepias speciosa*)
 
 # Maxine Cruz, Deanna Sunnergren, and Caelan Wilkie-Rogers
 # Spring 2022
 
-# This main.R code will:
-# (1) gather data from GBIF,
-# (2) generate a species occurrence map,
-# (3) generate a current species distribution map, and
-# (4) generate a future (forecast) species distribution map
+# This A_speciosa_occurrence_map.R code will:
+# (1) gather and clean data from GBIF, and
+# (2) generate a species occurrence map
 
 
 
@@ -18,7 +16,7 @@
 # List all the packages required to run this code
 # Storing them in one place (required <-) makes it easier to install them in one go
 
-required <- c("raster", "sp", "dismo", "maptools", "spocc", "rgdal", "sf", "tidyverse", "maps")
+required <- c("raster", "sp", "dismo", "maptools", "spocc", "rgdal", "sf", "maps")
 
 # Install packages
 
@@ -36,10 +34,6 @@ library("rgdal")
 library("sf")
 library("tidyverse")
 library("maps")
-
-# Load the functions used for species distribution modelling (SDM)
-
-source("SRC/sdm-functions.R")
 
 
 
@@ -88,14 +82,6 @@ showy_milkweed <- occ(query = "Asclepias speciosa",
 
 showy_milkweed <- showy_milkweed$gbif$data$Asclepias_speciosa
 
-# For the purposes of generating the SDM maps,
-# a separate copy of this data will be made as well
-
-A_speciosa_SDM_data <- showy_milkweed
-
-# This will be used later (a.k.a. towards the end of this script)
-# In the meantime, the following will help generate a species occurrence map
-
 
 ######## Cleaning the data: occurenceStatus ########
 
@@ -106,7 +92,7 @@ A_speciosa_SDM_data <- showy_milkweed
 
 # This function checks for different values under occurrenceStatus in the GBIF data
 
-unique(showy_milkweed$occurrenceStatus)
+# unique(showy_milkweed$occurrenceStatus)
 
 # The result from running this gives:
 # [1] PRESENT
@@ -144,7 +130,7 @@ unique(showy_milkweed$occurrenceStatus)
 
 # First, use unique() to find the different values under this data column
 
-unique(showy_milkweed$individualCount)
+# unique(showy_milkweed$individualCount)
 
 # This will return:
 # [1] NA  1  2  4  6  3
@@ -159,7 +145,7 @@ unique(showy_milkweed$individualCount)
 # Check to see if NA values were removed
 # Create a separate dataset where NA values are omitted
 
-showy_milkweed_noNA <- showy_milkweed[!is.na(showy_milkweed$individualCount), ]
+# showy_milkweed_noNA <- showy_milkweed[!is.na(showy_milkweed$individualCount), ]
 
 # This returns:
 # [1] 1 2 4 6 3
@@ -234,11 +220,7 @@ showy_milkweed <- showy_milkweed %>%
 
 # This map shows that our filtering efforts were effective
 
-# Apply the same filter to other two data sets
-
-showy_milkweed_noNA <- showy_milkweed_noNA %>% 
-  filter(latitude <= 100 & latitude >= 0) %>%
-  filter(longitude <= -50 & longitude >= -150)
+# Apply the same filter to other data set
 
 showy_milkweed_noNA_coord <- showy_milkweed_noNA_coord %>% 
   filter(latitude <= 100 & latitude >= 0) %>%
@@ -250,16 +232,6 @@ showy_milkweed_noNA_coord <- showy_milkweed_noNA_coord %>%
 # We do not need all the columns given by GBIF
 # So we can keep what will, or might be necessary
 
-showy_milkweed <- select(showy_milkweed, 
-                         c(name, latitude, longitude,
-                           scientificName, publishingCountry, stateProvince,
-                           year, month, day, eventDate, individualCount))
-
-showy_milkweed_noNA <- select(showy_milkweed_noNA, 
-                              c(name, latitude, longitude,
-                                scientificName, publishingCountry, stateProvince,
-                                year, month, day, eventDate, individualCount))
-
 showy_milkweed_noNA_coord <- select(showy_milkweed_noNA_coord, 
                                     c(name, latitude, longitude,
                                       scientificName, publishingCountry, stateProvince,
@@ -268,8 +240,6 @@ showy_milkweed_noNA_coord <- select(showy_milkweed_noNA_coord,
 
 ######## Save data as .csv file ########
 
-write_csv(showy_milkweed, "Data/showy_milkweed.csv")
-write_csv(showy_milkweed_noNA, "Data/showy_milkweed_noNA.csv")
 write_csv(showy_milkweed_noNA_coord, "Data/showy_milkweed_noNA_coord.csv")
 
 # Note: The "Data/" sends these files to the Data folder
@@ -347,34 +317,3 @@ dev.off()
 
 # An occurrence map for the Showy Milkweed should have been generated at this point
 # The .jpg can be found in the Outputs folder
-
-
-
-
-
-######################### SPECIES DISTRIBUTION MODELS #########################
-
-# The setup code below will download climate data from bioclim 
-# Originally this also installed libraries, but if we run the entirety of main.R that isn't needed
-# (https://www.worldclim.org/data/bioclim.html)
-
-source(file = "SRC/setup-for-current-and-future-sdm.R")
-
-# Earlier, we queried and filtered data for these SDMs
-# Note line 94: A_speciosa_SDM_data <- showy_milkweed
-
-# First, we need to ensure all data is character data
-
-A_speciosa_SDM_data <- apply(A_speciosa_SDM_data, 2, as.character)
-
-# Now we can save the data as a .csv file
-
-write.csv(A_speciosa_SDM_data, "Data/A_speciosa.csv")
-
-# This generates a CURRENT SDM model
-
-source("SRC/A-speciosa-sdm-current-single.R")
-
-# This generates a FUTURE SDM model
-
-source("SRC/A-speciosa-sdm-future-single.R")
