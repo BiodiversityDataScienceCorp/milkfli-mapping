@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Species Status Assessment (SSA) 
 
 ### Species Name: Showy Milkweed - *Asclepias Speciosa*
@@ -36,3 +37,5 @@ https://github.com/BiodiversityDataScienceCorp/milkfli-mapping
 ### References
 
 
+=======
+>>>>>>> 1fcc0f4713283e4ce12da047f9995b04936c9093
