@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 # Species Status Assessment (SSA) 
 
 ### Species Name: Showy Milkweed - *Asclepias Speciosa*
@@ -12,7 +11,7 @@
 ### Order:  *Gentianales* (Dogbane / Gentian)
 ### Family: *Asclepiadaceae* (Milkweeds)
 ### Species: *Asclepias speciosa* (Showy Milkweed) 
-![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/monarch_on_showy.jpeg?raw=true)
+![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/monarch_on_showy.jpg?raw=true)
 https://www.fws.gov/media/monarch-butterfly-showy-milkweed
 
 
