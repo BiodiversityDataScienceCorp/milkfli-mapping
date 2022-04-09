@@ -44,6 +44,9 @@ GBIF
 ### Species Occurrence Map
 ![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/showy_milkweed_occurrence_map.jpg?raw=true)
 
+### Current Species Distribution
+![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/A-speciosa-single-current-sdm.jpg?raw=true)
+
 ### Link to GitHub Repository
 
 
