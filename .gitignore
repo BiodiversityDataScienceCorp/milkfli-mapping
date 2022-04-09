@@ -41,3 +41,8 @@ vignettes/*.pdf
 
 # Don't ever expose me to the public
 github.R
+
+# Climate data is too large, so it is best not to push them
+.zip
+.bil
+.hdr
