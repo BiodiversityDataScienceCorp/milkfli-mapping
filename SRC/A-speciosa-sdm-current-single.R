@@ -82,7 +82,7 @@ ymax <- extent(sdm.raster)[4]
 
 
 
-plot.file.sdm <- paste0(outpath, outprefix, "-single-current-sdm.jpg")
+plot.file.sdm <- paste0(outpath, outprefix, "_single_current_sdm.jpg")
 
 #Convert sdm.raster to a data frame
 # First, to a SpatialPointsDataFrame

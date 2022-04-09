@@ -29,26 +29,27 @@ The following additional R packages are required (these will be installed when r
   + showy_milkweed.csv: Data harvested from [GBIF](https://www.gbif.org/) for Showy Milkweed (*A. speciosa*). This dataset is not under version control, but will be harvested by running SRC/main.R.
   + showy_milkweed_noNA.csv: Filtered version of showy_milkweed.csv. Omits individual counts with a value of NA.
   + showy_milkweed_noNA_coord.csv: Filtered version of showy_milkweed.csv. Omits latitudes and longitudes with a value of NA.
-  + wc2-5: Climate data at 2.5 minute resolution from [WorldClim](http://www.worldclim.org) (_note_: this folder is not under version control, but will be created by running the setup script (`scripts/setup.R`))
+  + wc2-5: Climate data at 2.5 minute resolution from [WorldClim](http://www.worldclim.org) (_note_: this folder is not under version control, but will be created by running `main.R`.
 + **SRC:** Contains R scripts for gathering occurrence data, running forecast models, and creating map outputs.
-  + main.R: describe what main.R does!
-  + sdm-functions.R:
-  + setup-for-current-and-future-sdm.R:
-  + A-speciosa-sdm-current-single.R:
-  + A-speciosa-sdm-future-single.R:
+  + main.R: This script is a compilation of all code. It will install and load all required packages, clean the data, and generate all occurrence and distribution maps. Running this code is ideal for desktop RStudio, as its length may cause RStudio Cloud to crash.
+  + sdm-functions.R: Functions used for SDM modelling scripts.
+  + setup-for-current-and-future-sdm.R: Downloads climate data.
+  + A-speciosa-sdm-current-single.R: Script for generating a current species distribution map.
+  + A-speciosa-sdm-future-single.R: Script for generating a future (forecast) species distribution map.
+  + A_speciosa_occurrence_map.R: Individual script for generating an occurrence map. Ideally for RStudio Cloud, where larger scripts may cause the console to crash.
 + **Outputs** (contents are not under version control): Contains generated maps
   + showy_milkweed_occurrence_map.jpg: Occurrence map of *A. speciosa*
-  +
-  +
+  + A_speciosa_single_current_sdm.jpg: Current SDM map of *A. speciosa*
+  + A_speciosa_single_future_sdm.jpg: Current SDM map of *A. speciosa*
 + **Photos:** Contains images used in repository and documents
-  + 
+  + butterfly-gcb28d28d2610_1280.jpg: Open-source image from [Pixabay](https://pixabay.com/illustrations/butterfly-butterflies-monarch-3407357/) used in main README.md.
 + **README.md:** You're looking at it!
 
 ## How do I run the code?
 The code used in this project is in R script. Therefore, there are two options:
 
 ### RStudio Cloud
-Will need to run each part individually
+Will need to run each part individually -- need to separate each from main.R. I need to practice this.
 
 ### RStudio Desktop
-Can probably run the main.R as a whole
+Can probably run the main.R as a whole? Need to fix SDM models first because they stopped working.

@@ -82,7 +82,7 @@ ymin <- extent(sdm.raster)[3]
 ymax <- extent(sdm.raster)[4]
 
 # Plot the model; save to pdf
-plot.file <- paste0(outpath, outprefix, "-single-future-prediction.pdf")
+plot.file <- paste0(outpath, outprefix, "_single_future_prediction.pdf")
 #pdf(file = plot.file, useDingbats = FALSE)
 
 # Load in data for map borders
