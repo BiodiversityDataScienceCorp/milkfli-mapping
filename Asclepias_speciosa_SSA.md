@@ -3,11 +3,9 @@
 
 ### [Github repository](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping) || Zenodo
 
-By: Deanna Sunnergren, Caelan Wilkie-Rogers, and Maxine Cruz
+By: Deanna Sunnergren, Caelan Wilkie-Rogers, and Maxine Cruz || Created: March 2022
 
-Created: March 2022
-
-![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Photos/monarch_on_showy.jpg){width=50%, height=50%}
+![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Photos/monarch_on_showy.jpg)
 
 ## About the Showy Milkweed (*A. speciosa*)
 
@@ -53,20 +51,32 @@ Honeybees, bumblebees, and other bee species!
 ### Conservation status
 Insert words
 
-## Data Source(s) for Occurrence and Distribution Modeling
-The data is primarily sourced from the Global Biodiversity Information Facility ([GBIF](https://www.gbif.org/species/3170260)). 
+## Data Sources
+The data is primarily sourced from the Global Biodiversity Information Facility ([GBIF](https://www.gbif.org/species/3170260)), which i
 
 ## Species Occurrence Map
+About this
+
+### Methods
+How we do this
 
 ![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/showy_milkweed_occurrence_map.jpg?raw=true)
 
 
 ## Current Species Distribution
+About this
+
+### Methods
+How we do this
 
 ![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/A_speciosa_single_current_sdm_19_20.jpg)
 
 
-### Forecast Species Distribution
+### Forecast Species Distribution (Estimation)
+About this
+
+### Methods
+How we do this
 
 Map is pending!
 
