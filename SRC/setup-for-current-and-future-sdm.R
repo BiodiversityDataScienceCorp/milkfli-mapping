@@ -48,39 +48,6 @@ if (file.access(names = "Data") != 0) {
 ################################################################################
 # UPDATED SCRIPT
 
-# load current climate data
-
-if(file.exists("Data")){
-  dir.create("Data/wc2-5")
-}else{
-  dir.create("Data")
-  dir.create("Data/wc2-5")
-}
-
-url<-"https://climatedata.watzekdi.net/bio_2-5m_bil.zip"
-destfile<-"Data/wc2-5/bio_2-5m_bil.zip"
-
-message("Downloading climate data from WorldClim")
-download.file(url, destfile)
-message("Extracting current climate data (this may take a moment)")
-unzip(zipfile = "Data/wc2-5/bio_2-5m_bil.zip", exdir = "Data/wc2-5/")
-file.remove("Data/wc2-5/bio_2-5m_bil.zip")
-
-
-# load future climate data
-
-future<-c("forecast1.zip","forecast2.zip","forecast3.zip","forecast4.zip")
-
-# loops through the future vector, downloads and unzips each file
-
-for (file in future){
-  urlFuture<-paste("https://climatedata.watzekdi.net/",file, sep = "")
-  destfileFuture<-file
-  download.file(urlFuture, destfileFuture)
-  message("Extracting future climate data (this may take a moment)")
-  unzip(zipfile = file, exdir = ".")
-  file.remove(file)
-}
 
 
 ################################################################################
@@ -88,19 +55,19 @@ for (file in future){
 
 # Download bioclim data
 
-# message("Downloading climate data from WorldClim")
-# bioclim.data <- getData(name = "worldclim",
-#                         var = "bio",
-#                         res = 2.5, # Could try for better resolution, 0.5, but would then need to provide lat & long...
-#                         path = "data/")
+ message("Downloading climate data from WorldClim")
+ bioclim.data <- getData(name = "worldclim",
+                         var = "bio",
+                         res = 2.5, # Could try for better resolution, 0.5, but would then need to provide lat & long...
+                         path = "Data/")
 
 # Unzip forecast data
 
-# message("Extracting forecast climate data (this may take a moment)")
-# forecast.archives <- list.files(path = "data/cmip5/2_5m", 
-#                                 pattern = "*.zip$",
-#                                 full.names = TRUE)
-# forecast.data <- lapply(X = forecast.archives, FUN = unzip)
+ message("Extracting forecast climate data (this may take a moment)")
+ forecast.archives <- list.files(path = "Data/cmip5/2_5m", 
+                                 pattern = "*.zip$",
+                                 full.names = TRUE)
+ forecast.data <- lapply(X = forecast.archives, FUN = unzip)
 
 # unzip(zipfile = "data/cmip5/2_5m/forecast-data.zip")
 
@@ -117,6 +84,7 @@ for (file in future){
 
 # See https://link.springer.com/article/10.1007/s00382-014-2418-8
 # for recommendations of the model to use
+
 # forecast.data <- getData(name = "CMIP5", # forecast
 #                          var = "bio", # bioclim
 #                          res = 2.5,
