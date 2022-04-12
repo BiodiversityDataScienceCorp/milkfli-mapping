@@ -43,6 +43,7 @@ vignettes/*.pdf
 github.R
 
 # Climate data is too large, so it is best not to push them
+/wc2-5/
 .zip
 .bil
 .hdr

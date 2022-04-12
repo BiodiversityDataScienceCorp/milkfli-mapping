@@ -45,6 +45,47 @@ if (file.access(names = "Data") != 0) {
    stop("Setup requires the raster package, which does not appear to be available.\n")
  }
 
+################################################################################
+# UPDATED SCRIPT
+
+# load current climate data
+
+if(file.exists("Data")){
+  dir.create("Data/wc2-5")
+}else{
+  dir.create("Data")
+  dir.create("Data/wc2-5")
+}
+
+url<-"https://climatedata.watzekdi.net/bio_2-5m_bil.zip"
+destfile<-"Data/wc2-5/bio_2-5m_bil.zip"
+
+message("Downloading climate data from WorldClim")
+download.file(url, destfile)
+message("Extracting current climate data (this may take a moment)")
+unzip(zipfile = "Data/wc2-5/bio_2-5m_bil.zip", exdir = "Data/wc2-5/")
+file.remove("Data/wc2-5/bio_2-5m_bil.zip")
+
+
+# load future climate data
+
+future<-c("forecast1.zip","forecast2.zip","forecast3.zip","forecast4.zip")
+
+# loops through the future vector, downloads and unzips each file
+
+for (file in future){
+  urlFuture<-paste("https://climatedata.watzekdi.net/",file, sep = "")
+  destfileFuture<-file
+  download.file(urlFuture, destfileFuture)
+  message("Extracting future climate data (this may take a moment)")
+  unzip(zipfile = file, exdir = ".")
+  file.remove(file)
+}
+
+
+################################################################################
+# FORMER SCRIPT
+
 # Download bioclim data
 
 # message("Downloading climate data from WorldClim")
@@ -71,7 +112,9 @@ if (file.access(names = "Data") != 0) {
 # rgdal. Instead use 
 #   `forecast.data <- raster::stack(x = "data/cmip5/2_5m/forecast-raster.gri")`
 # when forecast data are needed
+
 # Download forecast data
+
 # See https://link.springer.com/article/10.1007/s00382-014-2418-8
 # for recommendations of the model to use
 # forecast.data <- getData(name = "CMIP5", # forecast
@@ -81,6 +124,7 @@ if (file.access(names = "Data") != 0) {
 #                          model = "GD", # GFDL-ESM2G
 #                          rcp = "45", # CO2 increase 4.5
 #                          year = 70) # 2070
+
 # For those interested, the workaround was:
 #  1. With rgdal installed, use the getData code as above
 #  2. With the `bioclim.data` object in memory, run 
@@ -96,42 +140,8 @@ if (file.access(names = "Data") != 0) {
 #  5. Update this file (scripts/setup.R) to unzip the archive, inflating the 
 #      .grd and .gri files (directory structure was preserved by `zip` command)
 
-# UPDATED WAY TO GET CLIMATE DATA
 
-# load current climate data
-
-if(file.exists("Data")){
-  dir.create("Data/wc2-5")
-}else{
-  dir.create("Data")
-  dir.create("Data/wc2-5")
-}
-
-url<-"https://climatedata.watzekdi.net/bio_2-5m_bil.zip"
-destfile<-"Data/wc2-5/bio_2-5m_bil.zip"
-
-message("Downloading climate data from WorldClim")
-download.file(url, destfile)
-message("Extracting current climate data (this may take a moment)")
-utils::unzip(zipfile = "Data/wc2-5/bio_2-5m_bil.zip", exdir="Data/wc2-5/")
-file.remove("Data/wc2-5/bio_2-5m_bil.zip")
-
-
-# load future climate data
-
-future<-c("forecast1.zip","forecast2.zip","forecast3.zip","forecast4.zip")
-
-# loops through the future vector, downloads and unzips each file
-
-for (file in future){
-  urlFuture<-paste("https://climatedata.watzekdi.net/",file, sep = "")
-  destfileFuture<-file
-  download.file(urlFuture, destfileFuture)
-  message("Extracting future climate data (this may take a moment)")
-  unzip(zipfile = file, exdir=".")
-  file.remove(file)
-}
-
+################################################################################
 # Clean up workspace
 
 rm(required, successful, unsuccessful, bioclim.data, forecast.archives, forecast.data)
