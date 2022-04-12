@@ -1,5 +1,5 @@
-# Monarch butterfly (*Danaus plexippus*: Nymphalidae)
-Host Plant Species Status Assessment (SSA) 
+# Host Plant Species Status Assessment (SSA) 
+# for the Monarch butterfly (*Danaus plexippus*: Nymphalidae)
 
 By: Deanna Sunnergren, Caelan Wilkie-Rogers, and Maxine Cruz
 
