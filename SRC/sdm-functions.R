@@ -108,7 +108,7 @@ SDMRaster <- function(data, padding = 0.1) {
   bioclim.data <- getData(name = "worldclim",
                           var = "bio",
                           res = 2.5,
-                          path = "data/")
+                          path = "Data/")
   bioclim.data <- crop(x = bioclim.data, y = geographic.extent)
   
   # Predict presence probability from model and bioclim data
@@ -177,11 +177,11 @@ SDMForecast <- function(data, padding = 0.1) {
   bioclim.data <- getData(name = "worldclim",
                           var = "bio",
                           res = 2.5,
-                          path = "data/")
+                          path = "Data/")
   bioclim.data <- crop(x = bioclim.data, y = geographic.extent)
   
   # Load forecast data
-  forecast.files <- list.files(path = "data/cmip5/2_5m",
+  forecast.files <- list.files(path = "Data/cmip5/2_5m",
                                pattern = "*.gri$",
                                full.names = TRUE)
   # forecast.data <- raster::stack(x = "data/cmip5/2_5m/forecast-raster.gri")
@@ -229,14 +229,14 @@ SDMBioclim <- function(data, padding = 0.1) {
   bioclim.data <- getData(name = "worldclim",
                           var = "bio",
                           res = 2.5, # Could try for better resolution, 0.5, but would then need to provide lat & long...
-                          path = "data/")
+                          path = "Data/")
   bioclim.data <- crop(x = bioclim.data, y = geographic.extent)
   
   # Create pseudo-absence points (making them up, using 'background' approach)
   # raster.files <- list.files(path = paste0(system.file(package = "dismo"), "/ex"),
   #                            pattern = "grd", full.names = TRUE)
   # mask <- raster(raster.files[1])
-  bil.files <- list.files(path = "data/wc2-5", 
+  bil.files <- list.files(path = "Data/wc2-5", 
                           pattern = "*.bil$", 
                           full.names = TRUE)
   mask <- raster(bil.files[1])

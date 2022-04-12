@@ -31,7 +31,7 @@ if (substring(text = outpath, first = nchar(outpath), last = nchar(outpath)) != 
 }
 
 # Make sure directories are writable
-required.writables <- c("data", outpath)
+required.writables <- c("Data", outpath)
 write.access <- file.access(names = required.writables)
 if (any(write.access != 0)) {
   stop(paste0("You do not have sufficient write access to one or more directories. ",

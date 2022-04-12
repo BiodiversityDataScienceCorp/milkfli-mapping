@@ -35,7 +35,7 @@ if (length(unsuccessful) > 0) {
 
 # Make sure data directory is writable
 
-if (file.access(names = "data") != 0) {
+if (file.access(names = "Data") != 0) {
   stop(paste0("You do not have sufficient write access to data directory.\n"))
  }
 
@@ -113,7 +113,7 @@ destfile<-"Data/wc2-5/bio_2-5m_bil.zip"
 message("Downloading climate data from WorldClim")
 download.file(url, destfile)
 message("Extracting current climate data (this may take a moment)")
-unzip(zipfile = "Data/wc2-5/bio_2-5m_bil.zip", exdir="Data/wc2-5/")
+utils::unzip(zipfile = "Data/wc2-5/bio_2-5m_bil.zip", exdir="Data/wc2-5/")
 file.remove("Data/wc2-5/bio_2-5m_bil.zip")
 
 
