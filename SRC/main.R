@@ -37,10 +37,6 @@ library("sf")
 library("tidyverse")
 library("maps")
 
-# Load the functions used for species distribution modelling (SDM)
-
-source("SRC/sdm-functions.R")
-
 
 
 
@@ -354,6 +350,10 @@ dev.off()
 
 ######################### SPECIES DISTRIBUTION MODELS #########################
 
+# Load the functions used for species distribution modelling (SDM)
+
+source("SRC/sdm-functions.R")
+
 # The setup code below will download climate data from bioclim 
 # Originally this also installed libraries, but if we run the entirety of main.R that isn't needed
 # (https://www.worldclim.org/data/bioclim.html)
@@ -362,6 +362,18 @@ source(file = "SRC/setup-for-current-and-future-sdm.R")
 
 # Earlier, we queried and filtered data for these SDMs
 # Note line 94: A_speciosa_SDM_data <- showy_milkweed
+
+# But perhaps it might be good to limit the amount of data in this case, though
+# To reduce the amount of processing
+
+A_speciosa_SDM_data <- occ(query = "Asclepias speciosa",
+                           from = "gbif",
+                           gbifopts = list(year = "2019, 2020"),
+                           limit = 9400)
+
+# Filter data as before
+
+A_speciosa_SDM_data <- A_speciosa_SDM_data$gbif$data$Asclepias_speciosa
 
 # First, we need to ensure all data is character data
 
