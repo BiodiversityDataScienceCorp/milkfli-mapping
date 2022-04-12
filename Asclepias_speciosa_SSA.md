@@ -1,5 +1,5 @@
-# Showy Milkweed (*Asclepias speciosa*) Species Status Assessment (SSA) 
-**Host Plant of the Monarch butterfly (*Danaus plexippus*: Nymphalidae)**
+# Showy Milkweed (*Asclepias speciosa*) Species Status Assessment
+### Host Plant of the Monarch butterfly (*Danaus plexippus*: Nymphalidae)
 
 ### [Github repository](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping) || Zenodo
 
@@ -7,7 +7,9 @@ By: Deanna Sunnergren, Caelan Wilkie-Rogers, and Maxine Cruz
 
 Created: March 2022
 
-## Species Name: *Asclepias speciosa* (Showy milkweed)
+![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Photos/monarch_on_showy.jpg){width=50%, height=50%}
+
+## About the Showy Milkweed (*A. speciosa*)
 
 ### Species Taxonomy:
 + **Kingdom:** Plantae (Plants) 
@@ -16,10 +18,6 @@ Created: March 2022
 + **Order:** Gentianales (Dogbane / Gentian)
 + **Family:** Asclepiadaceae (Milkweeds)
 + **Species:** *Asclepias speciosa* (Showy Milkweed) 
-
-![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Photos/monarch_on_showy.jpg)
-
-## About the Showy Milkweed (*A. speciosa*)
 
 ### Species Description 
 “A stout, sparingly branched, pubescent perennial, 1 1/2-3 ft. tall, with large, oval, blue-green leaves and showy, spherical clusters of rose-colored flowers. Flowers occur at the top of the stem and on stalks from leaf axils. A grayish, velvety plant with erect leafy stems and with umbels of star-like pinkish flowers in upper axils and at top. Sap milky.” (wildflower.org) Milkweed can spread asexually through rhizomes or sexually with seeds. It does not spread aggressively. It is also drought tolerant once established. 
@@ -33,12 +31,11 @@ Created: March 2022
 + Queen butterflies
 + Dogbane Tiger Moths
 + Red-Belted Clearwing Moth
-**Foragers of *A. speciosa*:**
-+ Honeybees
-+ Bumblebees
-+ And other bee species! 
 
-### Threats to Species' Survival
+**Foragers of *A. speciosa*:**
+Honeybees, bumblebees, and other bee species! 
+
+### Threats to the Species' Survival
 **Pathogens:**
 + *Cercospora clavata*
 + *Cercospora elaeochroma*
@@ -49,6 +46,7 @@ Created: March 2022
 + *Puccinia bartholomaei*
 + *Puccinia seymouriana*
 + *Uromyces asclepiadis*
+
 **Other threats:**
 + *Asclepias speciosa* is toxic to a variety of livestock making it a target of removal by farmers and ranchers.
 
