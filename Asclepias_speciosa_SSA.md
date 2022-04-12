@@ -1,15 +1,20 @@
-# Species Status Assessment (SSA) 
+# Monarch butterfly (*Danaus plexippus*: Nymphalidae)
+Host Plant Species Status Assessment (SSA) 
 
-### Species Name: Host Plant Showy Milkweed - *Asclepias speciosa* for the Monarch Butterfly- *Danaus plexippus*: Nymphalidae
+By: Deanna Sunnergren, Caelan Wilkie-Rogers, and Maxine Cruz
 
+Created: March 2022
+
+## Species Name: *Asclepias speciosa* (Showy milkweed)
 
 ### Species Taxonomy:
-### Kingdom: *Plantae* (Plants) 
-### Division: *Anthophyta* (Flowering plants)
-### Class: *Dicotyledoneae* (Dicots )
-### Order:  *Gentianales* (Dogbane / Gentian)
-### Family: *Asclepiadaceae* (Milkweeds)
-### Species: *Asclepias speciosa* (Showy Milkweed) 
++ **Kingdom:** Plantae (Plants) 
++ **Division:** Anthophyta (Flowering plants)
++ **Class:** Dicotyledoneae (Dicots)
++ **Order:** Gentianales (Dogbane / Gentian)
++ **Family:** Asclepiadaceae (Milkweeds)
++ **Species:** *Asclepias speciosa* (Showy Milkweed) 
+
 ![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/monarch_on_showy.jpg?raw=true)
 https://www.fws.gov/media/monarch-butterfly-showy-milkweed
 
@@ -20,41 +25,54 @@ https://www.fws.gov/media/monarch-butterfly-showy-milkweed
 “Found in habitats ranging from sunny and dry to moist in savannas, prairies, roadsides, old fields, and meadows.” (wildflower.org) 
 
 ### Larval Host Information
-Monarch butterflies, Queen butterflies, Dogbane Tiger Moths, and Red belted clearwing moth larvae feed on Showy Milkweed. Showy Milkweed also provides forage for honeybees, bumblebees, and other bee species. (gardenerspath.com)
+**Larvae feeds on *A. speciosa*:**
++ Monarch butterflies (*Danaus plexippus*: Nymphalidae)
++ Queen butterflies
++ Dogbane Tiger Moths
++ Red-Belted Clearwing Moth
+**Foragers of *A. speciosa*:**
++ Honeybees
++ Bumblebees
++ And other bee species! 
+
 
 ### Threats to Species' Survival
 Pathogens:
-+ Cercospora clavata
-+ Cercospora elaeochroma
-+ Cercospora venturiodes
-+ Colletotrichum fusarioides
-+ Phoma asclepoadea
-+ Phoma rostrata
-+ Puccinia bartholomaei
-+ Puccinia seymouriana
-+ Uromyces asclepiadis
++ *Cercospora clavata*
++ *Cercospora elaeochroma*
++ *Cercospora venturiodes*
++ *Colletotrichum fusarioides*
++ *Phoma asclepoadea*
++ *Phoma rostrata*
++ *Puccinia bartholomaei*
++ *Puccinia seymouriana*
++ *Uromyces asclepiadis*
 
 Other threats:
-+ Asclepias speciosa is toxic to a variety of livestock making it a target of removal by farmers and ranchers.
++ *Asclepias speciosa* is toxic to a variety of livestock making it a target of removal by farmers and ranchers.
 
 
 ### Data Source(s) for Occurrence and Distribution Modeling
 GBIF
 
 ### Species Occurrence Map
+
 ![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/showy_milkweed_occurrence_map.jpg?raw=true)
+
 
 ### Current Species Distribution
 
-![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/A_speciosa-single-current-sdm.jpg?raw=true)
+![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/A_speciosa_single_current_sdm_19_20.jpg)
+
+
+### Forecast Species Distribution
+
+Map is pending!
 
 
 ### Link to GitHub Repository
 
-
 https://github.com/BiodiversityDataScienceCorp/milkfli-mapping
-
-
 
 
 ### References
@@ -62,3 +80,4 @@ https://www.xerces.org/sites/default/files/2018-05/17-031_02_XercesSoc_Milkweeds
 
 https://www.frontiersin.org/articles/10.3389/fevo.2019.00168/full
 
+gardenerspath.com
