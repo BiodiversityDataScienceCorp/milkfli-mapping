@@ -1,9 +1,10 @@
-# Make an occurrence map of the Showy Milkweed (*Asclepias speciosa*)
+######################### SPECIES OCCURRENCE MAP #########################
 
 # Maxine Cruz, Deanna Sunnergren, and Caelan Wilkie-Rogers
 # Spring 2022
 
 # This A_speciosa_occurrence_map.R code will:
+
 # (1) gather and clean data from GBIF, and
 # (2) generate a species occurrence map
 
@@ -248,7 +249,7 @@ write_csv(showy_milkweed_noNA_coord, "Data/showy_milkweed_noNA_coord.csv")
 
 
 
-######################### SPECIES OCCURRENCE MAP #########################
+######################### MAKE SPECIES OCCURRENCE MAP #########################
 
 ######## Load .csv data file for mapping ########
 

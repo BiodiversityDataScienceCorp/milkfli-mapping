@@ -104,7 +104,7 @@ plot.file <- paste0(outpath, outprefix, "_single_future_prediction.pdf")
 # Stop re-direction to PDF graphics device
 #dev.off()
 
-plot.file.sdm <- paste0(outpath, outprefix, "-single-future-sdm.jpg")
+plot.file.sdm <- paste0(outpath, outprefix, "_single_future_sdm.jpg")
 
 #Convert sdm.raster to a data frame
 # First, to a SpatialPointsDataFrame

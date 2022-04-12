@@ -362,11 +362,20 @@ source("SRC/sdm-functions.R")
 
 source(file = "SRC/setup-for-current-and-future-sdm.R")
 
+
+
+
+
+######################### QUERYING DATA FROM GBIF #########################
+
 # Earlier, we queried and filtered data for these SDMs
 # Note line 94: A_speciosa_SDM_data <- showy_milkweed
 
 # But perhaps it might be good to limit the amount of data in this case, though
 # To reduce the amount of processing
+
+# IF INTERESTED IN INCLUDING MORE YEARS (WHICH WILL LIKELY TAKE MORE PROCESSING TIME)
+# Omit the line including "gbifopts = list(year = "2019, 2020"),"
 
 A_speciosa_SDM_data <- occ(query = "Asclepias speciosa",
                            from = "gbif",
@@ -385,10 +394,23 @@ A_speciosa_SDM_data <- apply(A_speciosa_SDM_data, 2, as.character)
 
 write.csv(A_speciosa_SDM_data, "Data/A_speciosa.csv")
 
-# This generates a CURRENT SDM model
+
+
+
+
+######################### GENERATE A CURRENT SDM MAP #########################
 
 source("SRC/A-speciosa-sdm-current-single.R")
 
-# This generates a FUTURE SDM model
+
+
+
+
+######################### GENERATE A FUTURE SDM MAP #########################
 
 source("SRC/A-speciosa-sdm-future-single.R")
+
+
+
+
+
