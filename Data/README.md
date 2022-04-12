@@ -1,1 +1,7 @@
-## This folder contains files (.csv and the lot) 📄
+## **Data:** Contains data used for occurrence and distribution maps
+  + A_speciosa.csv: Data harvested from [GBIF](https://www.gbif.org/) for Showy Milkweed (*A. speciosa*). This dataset is not under version control, but will be harvested by running `main.R`. Same as showy_milkweed.csv, but is used for SDM maps -- filtered to data from 2019 ad 2020 (but this can be changed).
+  + cmip5: Forecast climate data at 2.5 minute resolution from [WorldClim](http://www.worldclim.org). These data were originally downloaded from the WorldClim website, but stored in the `.RData` format for ease of use. The data are for the year 2070, based on the GFDL-ESM2G model with an RCP of 4.5 CO<sub>2</sub>. For an examination of different forecast models, see [McSweeney et al. 2015](https://link.springer.com/article/10.1007/s00382-014-2418-8). (_note_: this folder is not under version control, but will be created by running `main.R`).
+  + showy_milkweed.csv: Data harvested from [GBIF](https://www.gbif.org/) for Showy Milkweed (*A. speciosa*). This dataset is not under version control, but will be harvested by running `main.R`. Same as A_speciosa.csv, but is used for species occurrence map -- filtered to data with latitude and longitude (e.g., no N/A values).
+  + showy_milkweed_noNA.csv: Filtered version of showy_milkweed.csv. Omits individual counts with a value of NA.
+  + showy_milkweed_noNA_coord.csv: Filtered version of showy_milkweed.csv. Omits latitudes and longitudes with a value of NA.
+  + wc2-5: Climate data at 2.5 minute resolution from [WorldClim](http://www.worldclim.org) (_note_: this folder is not under version control, but will be created by running `main.R`).
