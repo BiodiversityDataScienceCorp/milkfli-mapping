@@ -60,7 +60,7 @@ About this
 ### Methods
 How we do this
 
-![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/A_speciosa_occurrence_map.jpg)
+<img src = "https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/A_speciosa_occurrence_map.jpg" width="50%" height="50%">
 
 
 ## Current Species Distribution
@@ -69,7 +69,7 @@ About this
 ### Methods
 How we do this
 
-![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/A_speciosa_single_current_sdm.jpg)
+<img src = "https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/A_speciosa_single_current_sdm.jpg" width="50%" height="50%">
 
 
 ### Forecast Species Distribution (Estimation)
@@ -78,7 +78,7 @@ About this
 ### Methods
 How we do this
 
-![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/A_speciosa_single_future_sdm.jpg)
+<img src = "https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/A_speciosa_single_future_sdm.jpg" width="50%" height="50%">
 
 
 ## What do our findings suggest?
