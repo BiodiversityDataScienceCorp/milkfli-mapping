@@ -5,7 +5,7 @@
 
 By: Deanna Sunnergren, Caelan Wilkie-Rogers, and Maxine Cruz || Created: March 2022
 
-![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Photos/monarch_on_showy.jpg)
+![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Photos/monarch_on_showy.jpg)<img src = "https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Photos/monarch_on_showy.jpg" width="50%" height="50%">
 
 ## About the Showy Milkweed (*A. speciosa*)
 
@@ -60,7 +60,7 @@ About this
 ### Methods
 How we do this
 
-![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/showy_milkweed_occurrence_map.jpg?raw=true)<img src = "https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/showy_milkweed_occurrence_map.jpg?raw=true" width="50%" height="50%">
+![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/A_speciosa_occurrence_map.jpg)
 
 
 ## Current Species Distribution

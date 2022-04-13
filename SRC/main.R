@@ -84,14 +84,6 @@ showy_milkweed <- occ(query = "Asclepias speciosa",
 
 showy_milkweed <- showy_milkweed$gbif$data$Asclepias_speciosa
 
-# For the purposes of generating the SDM maps,
-# a separate copy of this data will be made as well
-
-A_speciosa_SDM_data <- showy_milkweed
-
-# This will be used later (a.k.a. towards the end of this script)
-# In the meantime, the following will help generate a species occurrence map
-
 
 ######## Cleaning the data: occurenceStatus ########
 
@@ -309,7 +301,7 @@ min.lon <- floor(min(csv_showy_milkweed_noNA_coord$longitude))
 
 # This indicates that we want to save the next output as "mapname.jpg"
 
-jpeg(file = "Outputs/showy_milkweed_occurrence_map.jpg")
+jpeg(file = "Outputs/A_speciosa_occurrence_map.jpg")
 
 # This loads spatial polygons
 # Spatial polygons are shapes/polygons that represent a geographic location
@@ -331,7 +323,7 @@ plot(wrld_simpl,
 
 points(x = csv_showy_milkweed_noNA_coord$longitude, 
        y = csv_showy_milkweed_noNA_coord$latitude,
-       col = "olivedrab3", 
+       col = "coral1", 
        pch = 20, 
        cex = 0.75)
 
