@@ -5,13 +5,14 @@
 
 ################################################################################
 # SUMMARY
+
 # Install dependencies
 # Download climate data
 
 ################################################################################
 # Install dependencies
 
-# This part was already done in the main.R code
+# This part was already done in the main.R code (milkfli)
 
 required <- c("raster", "sp", "dismo", "maptools", "spocc", "tidyverse", "maps")
 
@@ -45,29 +46,22 @@ if (file.access(names = "Data") != 0) {
    stop("Setup requires the raster package, which does not appear to be available.\n")
  }
 
-################################################################################
-# UPDATED SCRIPT
-
-
-
-################################################################################
-# FORMER SCRIPT
-
 # Download bioclim data
 
- message("Downloading climate data from WorldClim")
- bioclim.data <- getData(name = "worldclim",
-                         var = "bio",
-                         res = 2.5, # Could try for better resolution, 0.5, but would then need to provide lat & long...
-                         path = "Data/")
+message("Downloading climate data from WorldClim")
+bioclim.data <- getData(name = "worldclim",
+                        var = "bio",
+                        res = 2.5, # Could try for better resolution, 0.5, but would then need to provide lat & long...
+                        path = "Data/")
 
 # Unzip forecast data
 
- message("Extracting forecast climate data (this may take a moment)")
- forecast.archives <- list.files(path = "Data/cmip5/2_5m", 
-                                 pattern = "*.zip$",
-                                 full.names = TRUE)
- forecast.data <- lapply(X = forecast.archives, FUN = unzip)
+message("Extracting forecast climate data (this may take a moment)")
+forecast.archives <- list.files(path = "Data/cmip5/2_5m", 
+                                pattern = "*.zip$",
+                                full.names = TRUE)
+
+forecast.data <- lapply(X = forecast.archives, FUN = unzip)
 
 # unzip(zipfile = "data/cmip5/2_5m/forecast-data.zip")
 

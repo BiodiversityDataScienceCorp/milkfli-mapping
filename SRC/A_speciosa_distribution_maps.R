@@ -52,18 +52,49 @@ source("SRC/sdm-functions.R")
 source(file = "SRC/setup-for-current-and-future-sdm.R")
 
 
+######################### MAKING THE SDM MAPS #########################
+
+######## INITIAL DOINGS: LOADING FUNCTIONS AND CLIMATE DATA ########
+
+# Load the functions used for species distribution modelling (SDM)
+
+source("SRC/sdm-functions.R")
+
+# The setup code below will download climate data from bioclim 
+# Originally this also installed libraries, but if we run the entirety of main.R that isn't needed
+# (https://www.worldclim.org/data/bioclim.html)
+
+# NOTE: The climate data that is downloaded from here will not work for the forecast
+# This issue is resolved with the code after the following
+
+source(file = "SRC/setup-for-current-and-future-sdm.R")
+
+# The code below downloads and unzips climate data for the FUTURE SDM
+
+future <- c("forecast1.zip", "forecast2.zip", "forecast3.zip", "forecast4.zip")
+
+# This loop goes through the future vector, downloads and unzips each file
+
+for (file in future){
+  urlFuture <- paste("https://climatedata.watzekdi.net/",file, sep = "")
+  destfileFuture <- file
+  download.file(urlFuture, destfileFuture)
+  message("Extracting future climate data (this may take a moment)")
+  unzip(zipfile = file, exdir=".")
+  file.remove(file)
+}
 
 
-
-######################### QUERYING DATA FROM GBIF #########################
+######## QUERYING DATA FROM GBIF ########
 
 # Earlier, we queried and filtered data for these SDMs
-# Note line 94 in making an occurrence map: A_speciosa_SDM_data <- showy_milkweed
+# Note line 94 in A_speciosa_occurrence_map.R: A_speciosa_SDM_data <- showy_milkweed
 
 # But perhaps it might be good to limit the amount of data in this case, though
 # To reduce the amount of processing
 
 # IF INTERESTED IN INCLUDING MORE YEARS (WHICH WILL LIKELY TAKE MORE PROCESSING TIME)
+# BUT THE TRADEOFF IS PROBABLY A MORE ACCURATE FORECAST (!!!)
 # Omit the line including "gbifopts = list(year = "2019, 2020"),"
 
 A_speciosa_SDM_data <- occ(query = "Asclepias speciosa",
@@ -84,21 +115,13 @@ A_speciosa_SDM_data <- apply(A_speciosa_SDM_data, 2, as.character)
 write.csv(A_speciosa_SDM_data, "Data/A_speciosa.csv")
 
 
-
-
-
-######################### GENERATE A CURRENT SDM MAP #########################
+######## GENERATE A CURRENT SDM MAP ########
 
 source("SRC/A-speciosa-sdm-current-single.R")
 
 
-
-
-
-######################### GENERATE A FUTURE SDM MAP #########################
+######## GENERATE A FUTURE SDM MAP ########
 
 source("SRC/A-speciosa-sdm-future-single.R")
-
-
 
 

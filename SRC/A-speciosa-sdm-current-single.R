@@ -121,7 +121,7 @@ states<-ggplot(prepared.data) +
   scale_size_area() +
   coord_quickmap() +
   coord_fixed(xlim = c(xmin, xmax), ylim = c(ymin, ymax))+
-  labs(title="Current species occurrences with current climate SDM projections", x="longitude", y="latitude")
+  labs(title="Current Species Occurrences with Current Climate SDM Projections", x="Longitude", y="Latitude")
 
 ggsave(plot.file.sdm, states)
 
