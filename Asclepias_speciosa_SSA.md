@@ -5,7 +5,7 @@
 
 By: Deanna Sunnergren, Caelan Wilkie-Rogers, and Maxine Cruz || Created: March 2022
 
-![alt text]()<img src = "https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Photos/monarch_on_showy.jpg" width="50%" height="50%">
+<img src = "https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Photos/monarch_on_showy.jpg" width="50%" height="50%">
 
 ## About the Showy Milkweed (*A. speciosa*)
 
