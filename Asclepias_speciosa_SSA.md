@@ -49,10 +49,10 @@ Honeybees, bumblebees, and other bee species!
 + *Asclepias speciosa* is toxic to a variety of livestock making it a target of removal by farmers and ranchers.
 
 ### Conservation status
-Insert words
+Insert words here
 
 ## Data Sources
-The data is primarily sourced from the Global Biodiversity Information Facility ([GBIF](https://www.gbif.org/species/3170260)), which i
+The data is primarily sourced from the Global Biodiversity Information Facility ([GBIF](https://www.gbif.org/species/3170260)), which consists of 
 
 ## Species Occurrence Map
 About this
@@ -60,7 +60,7 @@ About this
 ### Methods
 How we do this
 
-![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/showy_milkweed_occurrence_map.jpg?raw=true)
+![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/showy_milkweed_occurrence_map.jpg?raw=true)<img src = "https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/showy_milkweed_occurrence_map.jpg?raw=true" width="50%" height="50%">
 
 
 ## Current Species Distribution
@@ -69,7 +69,7 @@ About this
 ### Methods
 How we do this
 
-![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/A_speciosa_single_current_sdm_19_20.jpg)
+![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/A_speciosa_single_current_sdm.jpg)
 
 
 ### Forecast Species Distribution (Estimation)
@@ -78,7 +78,7 @@ About this
 ### Methods
 How we do this
 
-Map is pending!
+![alt text](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Outputs/A_speciosa_single_future_sdm.jpg)
 
 
 ## What do our findings suggest?
