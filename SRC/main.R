@@ -18,7 +18,7 @@
 # List all the packages required to run this code
 # Storing them in one place (required <-) makes it easier to install them in one go
 
-required <- c("raster", "sp", "dismo", "maptools", "spocc", "rgdal", "sf", "tidyverse", "maps")
+required <- c("raster", "sp", "dismo", "maptools", "spocc", "rgdal", "sf", "tidyverse", "maps", "ggplot2", "rnaturalearth", "rnaturalearthdata")
 
 # Install packages
 
@@ -36,6 +36,8 @@ library("rgdal")
 library("sf")
 library("tidyverse")
 library("maps")
+library("rnaturalearth")
+library("rnaturalearthdata")
 
 
 
@@ -71,11 +73,22 @@ showy_milkweed <- occ(query = "Asclepias speciosa",
 # Search type: Scientific
 #   gbif: Asclepias speciosa (9353)
 
+# We will also want a copy for the SDM maps later
+
+# But perhaps it might be good to limit the amount of data in this case,
+# To reduce the amount of and time spent processing
+
+# IF INTERESTED IN INCLUDING MORE YEARS (WHICH WILL LIKELY TAKE MORE PROCESSING TIME)
+# Omit the line including "gbifopts = list(year = "2019, 2020"),"
+
+A_speciosa_SDM_data <- occ(query = "Asclepias speciosa",
+                           from = "gbif",
+                           gbifopts = list(year = "2019, 2020"),
+                           limit = 9400)
 
 
 
-
-######################### CLEANING THE GBIF DATA #########################
+######################### CLEANING THE GBIF DATA: OCCURENCE MAP #########################
 
 ######## Refine query results ########
 
@@ -83,6 +96,7 @@ showy_milkweed <- occ(query = "Asclepias speciosa",
 # Using the "$" notation helps to create a variable targeting the data set
 
 showy_milkweed <- showy_milkweed$gbif$data$Asclepias_speciosa
+A_speciosa_SDM_data <- A_speciosa_SDM_data$gbif$data$Asclepias_speciosa
 
 
 ######## Cleaning the data: occurenceStatus ########
@@ -205,9 +219,9 @@ showy_milkweed_noNA_coord <- showy_milkweed[!is.na(showy_milkweed$longitude), ]
 
 # Therefore, we can filter the data to those within those boundaries
 
-showy_milkweed <- showy_milkweed %>% 
-  filter(latitude <= 100 & latitude >= 0) %>%
-  filter(longitude <= -50 & longitude >= -150)
+# showy_milkweed <- showy_milkweed %>% 
+#  filter(latitude <= 100 & latitude >= 0) %>%
+#  filter(longitude <= -50 & longitude >= -150)
 
 # Replot data on world map to ensure filtering was correct
 
@@ -232,21 +246,21 @@ showy_milkweed_noNA_coord <- showy_milkweed_noNA_coord %>%
   filter(latitude <= 100 & latitude >= 0) %>%
   filter(longitude <= -50 & longitude >= -150)
 
+
 ######## Ensure that there are no duplicates in the data ########
 
-showy_milkweed <- distinct(showy_milkweed)
+# We do not need showy_milkweed anymore because that includes NA values
+# So we only save what we need
+
 showy_milkweed_noNA <- distinct(showy_milkweed_noNA)
 showy_milkweed_noNA_coord <- distinct(showy_milkweed_noNA_coord)
+A_speciosa_SDM_data <- distinct(A_speciosa_SDM_data)
+
 
 ######## Reduce columns in the data ########
 
 # We do not need all the columns given by GBIF
 # So we can keep what will, or might be necessary
-
-showy_milkweed <- select(showy_milkweed, 
-                         c(name, latitude, longitude,
-                           scientificName, publishingCountry, stateProvince,
-                           year, month, day, eventDate, individualCount))
 
 showy_milkweed_noNA <- select(showy_milkweed_noNA, 
                               c(name, latitude, longitude,
@@ -259,11 +273,16 @@ showy_milkweed_noNA_coord <- select(showy_milkweed_noNA_coord,
                                       year, month, day, eventDate, individualCount))
 
 
+# Extra step for SDM data: Need to ensure all data is character data
+
+A_speciosa_SDM_data <- apply(A_speciosa_SDM_data, 2, as.character)
+
+
 ######## Save data as .csv file ########
 
-write_csv(showy_milkweed, "Data/showy_milkweed.csv")
 write_csv(showy_milkweed_noNA, "Data/showy_milkweed_noNA.csv")
 write_csv(showy_milkweed_noNA_coord, "Data/showy_milkweed_noNA_coord.csv")
+write.csv(A_speciosa_SDM_data, "Data/A_speciosa.csv")
 
 # Note: The "Data/" sends these files to the Data folder
 
@@ -275,7 +294,8 @@ write_csv(showy_milkweed_noNA_coord, "Data/showy_milkweed_noNA_coord.csv")
 
 ######## Load .csv data file for mapping ########
 
-csv_showy_milkweed_noNA_coord <- read_csv("Data/showy_milkweed_noNA_coord.csv")
+showy_milkweed_noNA_coord <- read_csv("Data/showy_milkweed_noNA_coord.csv")
+showy_milkweed_noNA <- read_csv("Data/showy_milkweed_noNA.csv")
 
 
 ######## Determine max and min latitudes and longitudes to center map ########
@@ -289,56 +309,79 @@ csv_showy_milkweed_noNA_coord <- read_csv("Data/showy_milkweed_noNA_coord.csv")
 # max() gives the largest value of the column data
 # So if the highest value in dataset$latitude is 46.5, then its ceiling is 47
 
-max.lat <- ceiling(max(csv_showy_milkweed_noNA_coord$latitude))
+max.lat <- ceiling(max(showy_milkweed_noNA_coord$latitude))
 
 # floor() and min() work similarly (but opposite)
 # If the lowest value of dataset$latitude is 43.84, then its floor is 43
 
-min.lat <- floor(min(csv_showy_milkweed_noNA_coord$latitude))
+min.lat <- floor(min(showy_milkweed_noNA_coord$latitude))
 
 # Run the same calculations for longitude
 
-max.lon <- ceiling(max(csv_showy_milkweed_noNA_coord$longitude))
-min.lon <- floor(min(csv_showy_milkweed_noNA_coord$longitude))
+max.lon <- ceiling(max(showy_milkweed_noNA_coord$longitude))
+min.lon <- floor(min(showy_milkweed_noNA_coord$longitude))
 
 
 ######## Mapping points for A. speciosa ########
 
+# Helps format the map (to be honest, not sure what this does yet but it's necessary)
+
+world <- ne_countries(scale = "medium", returnclass = "sf")
+class(world)
+
+# Mapping the points using ggplot()!
+
+occ_map <- ggplot(data = world) +
+  geom_sf() +
+  coord_sf(xlim = c(min.lon-5, max.lon+5), ylim = c(min.lat-5, max.lat+5)) + # The -5 and +5 extend the boundary a little
+  geom_point(data = showy_milkweed_noNA, aes(longitude, latitude, color = "coral1"), show.legend = FALSE) +
+  borders("state") + # Adds state borders
+  labs(title = "Occurrences of *Asclepias speciosa* in Northern America",
+       x = "Longitude",
+       y = "Latitude") 
+
+# This indicates we are done with plotting and saving to .jpg
+
+ggsave("Outputs/A_speciosa_occurrence_map.jpg", plot = occ_map)
+
+# [THE FOLLOWING WAS CODE USED TO CREATE THE ORIGINAL MAP]
+# [IN THE INTEREST OF MAKING A PRETTIER MAP, THE CODE ABOVE DOES JUST THAT]
+
 # This indicates that we want to save the next output as "mapname.jpg"
 
-jpeg(file = "Outputs/A_speciosa_occurrence_map.jpg")
+# jpeg(file = "Outputs/A_speciosa_occurrence_map.jpg")
 
 # This loads spatial polygons
 # Spatial polygons are shapes/polygons that represent a geographic location
 
-data(wrld_simpl)
+# data(wrld_simpl)
 
 # Plot the base map
 
-plot(wrld_simpl, 
-     xlim = c(min.lon, max.lon), # Sets upper/lower x
-     ylim = c(min.lat, max.lat), # Sets upper/lower y
-     xlab = "Longitude",
-     ylab = "Latitude",
-     axes = TRUE, 
-     col = "grey95",
-     main = "*Asclepias speciosas* Occurrences in North America")
+# plot(wrld_simpl, 
+#     xlim = c(min.lon, max.lon), # Sets upper/lower x
+#     ylim = c(min.lat, max.lat), # Sets upper/lower y
+#     xlab = "Longitude",
+#     ylab = "Latitude",
+#     axes = TRUE, 
+#     col = "grey95",
+#     main = "*Asclepias speciosas* Occurrences in North America")
 
 # Add the points for individual observations
 
-points(x = csv_showy_milkweed_noNA_coord$longitude, 
-       y = csv_showy_milkweed_noNA_coord$latitude,
-       col = "coral1", 
-       pch = 20, 
-       cex = 0.75)
+# points(x = csv_showy_milkweed_noNA_coord$longitude, 
+#       y = csv_showy_milkweed_noNA_coord$latitude,
+#       col = "coral1", 
+#       pch = 20, 
+#       cex = 0.75)
 
 # And draw a little box around the graph
 
-box()
+# box()
 
-# This indicates we are done with plotting and saving to .jpg
+# This indicates we are done with plotting and saving to .jpeg
 
-dev.off()
+# dev.off()
 
 # An occurrence map for the Showy Milkweed should have been generated at this point
 # The .jpg can be found in the Outputs folder
@@ -378,39 +421,6 @@ for (file in future){
   unzip(zipfile = file, exdir=".")
   file.remove(file)
 }
-
-
-######## QUERYING DATA FROM GBIF ########
-
-# Earlier, we queried and filtered data for these SDMs
-# Note line 94: A_speciosa_SDM_data <- showy_milkweed
-
-# But perhaps it might be good to limit the amount of data in this case, though
-# To reduce the amount of processing
-
-# IF INTERESTED IN INCLUDING MORE YEARS (WHICH WILL LIKELY TAKE MORE PROCESSING TIME)
-# Omit the line including "gbifopts = list(year = "2019, 2020"),"
-
-A_speciosa_SDM_data <- occ(query = "Asclepias speciosa",
-                           from = "gbif",
-                           gbifopts = list(year = "2019, 2020"),
-                           limit = 9400)
-
-# Filter data as before
-
-A_speciosa_SDM_data <- A_speciosa_SDM_data$gbif$data$Asclepias_speciosa
-
-# Ensure that there are no duplicates in the data
-
-A_speciosa_SDM_data <- distinct(A_speciosa_SDM_data)
-
-# First, we need to ensure all data is character data
-
-A_speciosa_SDM_data <- apply(A_speciosa_SDM_data, 2, as.character)
-
-# Now we can save the data as a .csv file
-
-write.csv(A_speciosa_SDM_data, "Data/A_speciosa.csv")
 
 
 ######## GENERATE A CURRENT SDM MAP ########

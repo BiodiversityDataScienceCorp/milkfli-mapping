@@ -58,4 +58,4 @@ The code used in this project is in R script. Therefore, there are two options:
 Will need to run each part individually -- need to separate each from main.R. I need to practice this.
 
 ### RStudio Desktop
-Can probably run the main.R as a whole? Need to fix SDM models first because they stopped working.
+1) 
