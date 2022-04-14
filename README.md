@@ -58,4 +58,8 @@ The code used in this project is in R script. Therefore, there are two options:
 Will need to run each part individually -- need to separate each from main.R. I need to practice this.
 
 ### RStudio Desktop
-1) 
+1) Under SRC, open `main.R`.
+2) Run each line.
+3) At `install.packages(required)` (line 26), you may be prompted to restart R. Don't panic, just agree to it.
+4) Note: Some lines may take a bit longer than others, but just be patient. This includes querying for the data (`occ()`), downloading the climate data (lines 412 - 427), and generating the SDM maps (lines 432 and 437).
+
