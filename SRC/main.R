@@ -18,7 +18,8 @@
 # List all the packages required to run this code
 # Storing them in one place (required <-) makes it easier to install them in one go
 
-required <- c("raster", "sp", "dismo", "maptools", "spocc", "rgdal", "sf", "tidyverse", "maps", "ggplot2", "rnaturalearth", "rnaturalearthdata")
+required <- c("raster", "sp", "dismo", "maptools", "spocc", "rgdal", "sf", "tidyverse", 
+              "maps", "ggplot2", "rnaturalearth", "rnaturalearthdata")
 
 # Install packages
 
@@ -88,7 +89,7 @@ A_speciosa_SDM_data <- occ(query = "Asclepias speciosa",
 
 
 
-######################### CLEANING THE GBIF DATA: OCCURENCE MAP #########################
+######################### CLEANING THE GBIF DATA #########################
 
 ######## Refine query results ########
 
@@ -109,6 +110,7 @@ A_speciosa_SDM_data <- A_speciosa_SDM_data$gbif$data$Asclepias_speciosa
 # This function checks for different values under occurrenceStatus in the GBIF data
 
 unique(showy_milkweed$occurrenceStatus)
+unique(A_speciosa_SDM_data$occurrenceStatus)
 
 # The result from running this gives:
 # [1] PRESENT
@@ -147,6 +149,7 @@ unique(showy_milkweed$occurrenceStatus)
 # First, use unique() to find the different values under this data column
 
 unique(showy_milkweed$individualCount)
+unique(A_speciosa_SDM_data$individualCount)
 
 # This will return:
 # [1] NA  1  2  4  6  3
@@ -162,6 +165,7 @@ unique(showy_milkweed$individualCount)
 # Create a separate dataset where NA values are omitted
 
 showy_milkweed_noNA <- showy_milkweed[!is.na(showy_milkweed$individualCount), ]
+A_speciosa_SDM_data <- A_speciosa_SDM_data[!is.na(A_speciosa_SDM_data$individualCount), ]
 
 # This returns:
 # [1] 1 2 4 6 3
@@ -249,7 +253,7 @@ showy_milkweed_noNA_coord <- showy_milkweed_noNA_coord %>%
 
 ######## Ensure that there are no duplicates in the data ########
 
-# We do not need showy_milkweed anymore because that includes NA values
+# We do not necessarily need showy_milkweed anymore because that includes NA values
 # So we only save what we need
 
 showy_milkweed_noNA <- distinct(showy_milkweed_noNA)
