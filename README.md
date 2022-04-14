@@ -16,8 +16,11 @@ Many thanks to Jeff Oliver for the code used in species distribution modelling! 
 The following additional R packages are required (these will be installed when running the main script, `SRC/main.R`):
 
 + dismo
++ ggplot2
 + maps
 + maptools
++ rnaturalearth
++ rnaturalearthdata
 + raster
 + rgdal
 + sf
