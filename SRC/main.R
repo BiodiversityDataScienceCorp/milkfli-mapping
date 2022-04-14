@@ -232,6 +232,11 @@ showy_milkweed_noNA_coord <- showy_milkweed_noNA_coord %>%
   filter(latitude <= 100 & latitude >= 0) %>%
   filter(longitude <= -50 & longitude >= -150)
 
+######## Ensure that there are no duplicates in the data ########
+
+showy_milkweed <- distinct(showy_milkweed)
+showy_milkweed_noNA <- distinct(showy_milkweed_noNA)
+showy_milkweed_noNA_coord <- distinct(showy_milkweed_noNA_coord)
 
 ######## Reduce columns in the data ########
 
@@ -317,7 +322,7 @@ plot(wrld_simpl,
      ylab = "Latitude",
      axes = TRUE, 
      col = "grey95",
-     main = "*Asclepias speciosas* occurrences in the Americas")
+     main = "*Asclepias speciosas* Occurrences in North America")
 
 # Add the points for individual observations
 
@@ -394,6 +399,10 @@ A_speciosa_SDM_data <- occ(query = "Asclepias speciosa",
 # Filter data as before
 
 A_speciosa_SDM_data <- A_speciosa_SDM_data$gbif$data$Asclepias_speciosa
+
+# Ensure that there are no duplicates in the data
+
+A_speciosa_SDM_data <- distinct(A_speciosa_SDM_data)
 
 # First, we need to ensure all data is character data
 
