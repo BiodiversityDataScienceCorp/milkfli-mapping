@@ -1,9 +1,9 @@
-# Repository for Making Species Occurrence and Distribution maps for the Showy Milkweed (*Asclepias speciosa*)
+## Repository for Making Species Occurrence and Distribution maps for the Showy Milkweed (*Asclepias speciosa*)
 ### Maxine Cruz, Caelan Wilkie-Rogers, and Deanna Sunnergren
 
 ![](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Photos/butterfly-gcb28d2610_1280.jpg)
 
-## Overview
+## 🦋 Overview
 The **Showy Milkweed (*Asclepias speciosa*)** is one of various host plants to monarch butterflies (*Danaus plexippus*: Nymphalidae). Monarch populations have been observed to be declining at an average rate, with respect to other butterfly species, in the United States. However, the number of migratory individuals that return from overwintering sites has also been declining -- likely as a result of climate change. Plants, of course, are also affected by this change. Therefore, understanding the occurrences and distribution of monarch host plants may be key in their long-term conservation efforts. 
 
 This repository serves to examine occurrences and the current and future distributions of the **Showy Milkweed** populations in North America. Data from the Global Biodiversity Information Facility (GBIF), an open-access source of biodiversity data from several sources (including, but not limited to, iNaturalist, USGS, and museum collections), was utilized in this project. 
@@ -12,7 +12,7 @@ A [Species Status Assessment](https://github.com/BiodiversityDataScienceCorp/mil
 
 Many thanks to Jeff Oliver for the code used in species distribution modelling! This borrowed code can be found at [https://github.com/jcoliver/biodiversity-sdm-lesson](https://github.com/jcoliver/biodiversity-sdm-lesson).
 
-## Dependencies
+## 🛠️ Dependencies
 The following additional R packages are required (these will be installed when running the main script, `SRC/main.R`):
 
 + dismo
@@ -30,7 +30,7 @@ The following additional R packages are required (these will be installed when r
 
 (If running code through RStudio Cloud, these can be installed by running `install-packages-and-libraries.R`.)
 
-## Structure
+## 📂 Structure
 ### **Asclepias_speciosa_SSA.md:** 
   + Species Status Assessment for the Showy Milkweed (*Asclepias speciosa*)
 ### **Data:** Contains data used for occurrence and distribution maps
@@ -57,16 +57,16 @@ The following additional R packages are required (these will be installed when r
   + butterfly-gcb28d28d2610_1280.jpg: Open-source image from [Pixabay](https://pixabay.com/illustrations/butterfly-butterflies-monarch-3407357/) used in main README.md.
   + monarch_on_showy.jpg: Image used in Asclepias_speciosa_SSA.md.
 
-## How do I run the code?
+## ⌨️ How do I run the code?
 The code used in this project is in R script. Therefore, there are two options:
 
-### RStudio Desktop
+### 💻️ RStudio Desktop
 1) Under SRC, open `main.R`.
 2) Run each line.
 3) At `install.packages(required)` (line 26), you may be prompted to restart R. Don't panic, just agree to it.
 4) Note: Some lines may take a bit longer than others, but just be patient. This includes querying for the data (`occ()`), downloading the climate data (lines 412 - 427), and generating the SDM maps (lines 432 and 437).
 
-### RStudio Cloud
+### ☁️ RStudio Cloud
 1) Run `install-packages-and-libraries.R`. This installs and loads all necessary libraries for generating all maps.
 2) For an occurrence map, run `A_speciosa_occurrence_map.R`.
 3) For a current and/or forecast estimate species distribution map, run `A_speciosa_distribution_maps.R`.
