@@ -28,7 +28,7 @@ The following additional R packages are required (these will be installed when r
 + spocc
 + tidyverse
 
-(If running code through RStudio Cloud, these can be installed when running)
+(If running code through RStudio Cloud, these can be installed by running `install-packages-and-libraries.R`.)
 
 ## Structure
 ### **Asclepias_speciosa_SSA.md:** 
@@ -44,6 +44,7 @@ The following additional R packages are required (these will be installed when r
   + main.R: This script is a compilation of all code. It will install and load all required packages, clean the data, and generate all occurrence and distribution maps. Running this code is ideal for desktop RStudio, as its length may cause RStudio Cloud to crash.
   + sdm-functions.R: Functions used for SDM modelling scripts.
   + setup-for-current-and-future-sdm.R: Downloads climate data.
+  + install-packages-and-libraries.R: Individual script for installing and loading necessary packages. Ideally for RStudio Cloud, where larger scripts may cause the console to crash.
   + A-speciosa-sdm-current-single.R: Script for generating a current species distribution map.
   + A-speciosa-sdm-future-single.R: Script for generating a future (forecast) species distribution map.
   + A_speciosa_distribution_maps.R: Individual script for generating current and forecast distribution maps. Ideally for RStudio Cloud, where larger scripts may cause the console to crash.
@@ -51,7 +52,7 @@ The following additional R packages are required (these will be installed when r
 ### **Outputs** (contents are not under version control): Contains generated maps
   + showy_milkweed_occurrence_map.jpg: Occurrence map of *A. speciosa*
   + A_speciosa_single_current_sdm.jpg: Current SDM map of *A. speciosa*
-  + A_speciosa_single_future_sdm.jpg: Current SDM map of *A. speciosa*
+  + A_speciosa_single_future_sdm.jpg: Forecast SDM map of *A. speciosa*
 ### **Photos:** Contains images used in repository and documents
   + butterfly-gcb28d28d2610_1280.jpg: Open-source image from [Pixabay](https://pixabay.com/illustrations/butterfly-butterflies-monarch-3407357/) used in main README.md.
   + monarch_on_showy.jpg: Image used in Asclepias_speciosa_SSA.md.
@@ -59,14 +60,15 @@ The following additional R packages are required (these will be installed when r
 ## How do I run the code?
 The code used in this project is in R script. Therefore, there are two options:
 
-### RStudio Cloud
-1) Run `install-packages-and-libraries.R`. This installs and loads all necessary libraries for generating all maps.
-2) For an occurrence map, run `A_speciosa_occurrence_map.R`.
-3) For a current and/or forecast estimate species distribution map, run `A_speciosa_distribution_maps.R`.
-
 ### RStudio Desktop
 1) Under SRC, open `main.R`.
 2) Run each line.
 3) At `install.packages(required)` (line 26), you may be prompted to restart R. Don't panic, just agree to it.
 4) Note: Some lines may take a bit longer than others, but just be patient. This includes querying for the data (`occ()`), downloading the climate data (lines 412 - 427), and generating the SDM maps (lines 432 and 437).
+
+### RStudio Cloud
+1) Run `install-packages-and-libraries.R`. This installs and loads all necessary libraries for generating all maps.
+2) For an occurrence map, run `A_speciosa_occurrence_map.R`.
+3) For a current and/or forecast estimate species distribution map, run `A_speciosa_distribution_maps.R`.
+
 
