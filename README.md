@@ -28,6 +28,8 @@ The following additional R packages are required (these will be installed when r
 + spocc
 + tidyverse
 
+(If running code through RStudio Cloud, these can be installed when running)
+
 ## Structure
 ### **Asclepias_speciosa_SSA.md:** 
   + Species Status Assessment for the Showy Milkweed (*Asclepias speciosa*)
@@ -58,7 +60,9 @@ The following additional R packages are required (these will be installed when r
 The code used in this project is in R script. Therefore, there are two options:
 
 ### RStudio Cloud
-Will need to run each part individually -- need to separate each from main.R. I need to practice this.
+1) Run `install-packages-and-libraries.R`. This installs and loads all necessary libraries for generating all maps.
+2) For an occurrence map, run `A_speciosa_occurrence_map.R`.
+3) For a current and/or forecast estimate species distribution map, run `A_speciosa_distribution_maps.R`.
 
 ### RStudio Desktop
 1) Under SRC, open `main.R`.

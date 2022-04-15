@@ -37,6 +37,7 @@ library("rgdal")
 library("sf")
 library("tidyverse")
 library("maps")
+library("ggplot2")
 library("rnaturalearth")
 library("rnaturalearthdata")
 
