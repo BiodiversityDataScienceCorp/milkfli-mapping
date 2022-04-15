@@ -61,14 +61,15 @@ The following additional R packages are required (these will be installed when r
 The code used in this project is in R script. Therefore, there are two options:
 
 ### 💻️ RStudio Desktop
-1) Under SRC, open `main.R`.
+1) Under the SRC folder, open `main.R`.
 2) Run each line.
 3) At `install.packages(required)` (line 26), you may be prompted to restart R. Don't panic, just agree to it.
 4) Note: Some lines may take a bit longer than others, but just be patient. This includes querying for the data (`occ()`), downloading the climate data (lines 412 - 427), and generating the SDM maps (lines 432 and 437).
 
 ### ☁️ RStudio Cloud
-1) Run `install-packages-and-libraries.R`. This installs and loads all necessary libraries for generating all maps.
-2) For an occurrence map, run `A_speciosa_occurrence_map.R`.
-3) For a current and/or forecast estimate species distribution map, run `A_speciosa_distribution_maps.R`.
+1) Navigate to SRC folder. All necessary code is stored here.
+2) Run `install-packages-and-libraries.R`. This installs and loads all necessary libraries for generating all maps.
+3) For an occurrence map, run `A_speciosa_occurrence_map.R`.
+4) For a current and/or forecast estimate species distribution map, run `A_speciosa_distribution_maps.R`.
 
 
