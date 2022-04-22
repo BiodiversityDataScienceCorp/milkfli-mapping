@@ -1,7 +1,7 @@
 # Showy Milkweed (*Asclepias speciosa*) Species Status Assessment
 ### Host Plant of the Monarch butterfly (*Danaus plexippus*: Nymphalidae)
 
-### [Github repository](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping) || [![DOI](https://zenodo.org/badge/459738856.svg)](https://zenodo.org/badge/latestdoi/459738856)
+### [Github repository](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping) || [Zenodo DOI](https://zenodo.org/badge/latestdoi/459738856)
 
 By: Deanna Sunnergren, Caelan Wilkie-Rogers, and Maxine Cruz || Created: March 2022
 
