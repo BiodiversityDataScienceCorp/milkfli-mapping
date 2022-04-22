@@ -8,7 +8,7 @@ The **Showy Milkweed (*Asclepias speciosa*)** is one of various host plants to m
 
 This repository serves to examine occurrences and the current and future distributions of the **Showy Milkweed** populations in North America. Data from the Global Biodiversity Information Facility (GBIF), an open-access source of biodiversity data from several sources (including, but not limited to, iNaturalist, USGS, and museum collections), was utilized in this project. 
 
-A [Species Status Assessment](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/SSA.md) of the Showy Milkweed was created and resides in the Outputs folder of this repository. This document contains information on the species, data cleaning process, and generated occurrence and distribution maps. At the end of the day, this repository is a documentation of the methods and analysis used towards Showy Milkweed data.
+A [Species Status Assessment](https://github.com/BiodiversityDataScienceCorp/milkfli-mapping/blob/main/Asclepias_speciosa_SSA.md) of the Showy Milkweed was created and resides in the Outputs folder of this repository. This document contains information on the species, data cleaning process, and generated occurrence and distribution maps. At the end of the day, this repository is a documentation of the methods and analysis used towards Showy Milkweed data.
 
 Many thanks to Jeff Oliver for the code used in species distribution modelling! This borrowed code can be found at [https://github.com/jcoliver/biodiversity-sdm-lesson](https://github.com/jcoliver/biodiversity-sdm-lesson).
 
